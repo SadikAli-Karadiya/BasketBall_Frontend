@@ -22,58 +22,52 @@ function Match_cards({ match }) {
   };
   return (
     <>
-      <div className="relative min-w-[260px] xs:min-w-[320px] sm:min-w-[350px] md:min-w-[350px] max-w-[440px] h-[190px] sm:h-[200px] md:h-[185px] border-0 hover:border-2 hover:border-gray-400 hover:border-dashed group rounded-lg"
+      <div className="relative min-w-[300px] xs:min-w-[320px] sm:min-w-[350px] md:min-w-[350px] max-w-[440px] h-[190px] sm:h-[200px] md:h-[185px] border-0 hover:border-2 hover:border-gray-400 hover:border-dashed group rounded-lg"
         onClick={handleClick} key={match.id}>
         <div className="absolute flex transition-all duration-300 ease-in-out cursor-pointer top-[-2px] left-[-2px] w-full h-full group-hover:left-[-10px] group-hover:top-[-10px] shadow-[#ea5a2e12] hover:left-[-10px] hover:top-[-10px] bg-white shadow-xl rounded-lg">
           {/* Live match  */}
           {
             match?.status == 2
               ?
-              <div className='bg-[#ee6730] w-1 h-full  rounded-l'>
+              <div className='bg-green-600 w-1 h-full  rounded-l'>
 
               </div>
               :
               null
           }
-          <div className='flex justify-center items-start w-full flex-col ml-3'>
-            {/* Upcoming Live   */}
+          <div className='flex justify-center items-start w-full flex-col mx-3 my-2'>
+            {/* Upcoming match */}
             {
               match?.status == 1
                 ?
-                <div className='flex flex-col items-start '>
+                <div className='flex flex-col w-full mb-auto'>
                   <div className='flex items-center space-x-3'>
                     <p className='uppercase font-semibold text-black text-sm xl:text-base flex items-center'>
                       UpComming
                     </p>
-                  </div>
-                  <div className='flex items-start space-x-3'>
-                    <p className='text-black font-semibold uppercase'>
-                      {match.round_name ? match.round_name : ""}
-                    </p>
-                    <p className='text-slate-500 text-[15px] font-medium'><span>{match.start_date ? moment(match?.start_date).format('ll') : "Comming Soon"}</span></p>
-                    <p className='text-black font-bold text-[15px]'>{match?.start_time}  </p>
+                    <div className='w-full flex items-center justify-end'>
+                      <p className='text-slate-500 text-[15px] font-medium'><span>{match.start_date ? moment(match?.start_date).format('ll') : "To Be Announced"}</span></p>
+                      <p className='text-black font-bold text-[15px]'>{match?.start_time} </p>
+                    </div>
                   </div>
                 </div>
                 :
                 null
             }
-            {/* MAtch Live   */}
+            {/* Live Match */}
             {
               match?.status == 2
                 ?
-                <div className='flex flex-col items-start '>
-                  <div className='flex items-center space-x-3'>
-                    <p className='uppercase font-semibold text-red-600 text-sm xl:text-base flex items-center'>
+                <div className='w-full flex flex-col items-start mb-auto'>
+                  <div className='w-full flex items-center justify-between'>
+                    <p className='uppercase font-semibold text-green-600 text-sm xl:text-base flex items-center'>
                       <RxDotFilled className='text-2xl' />
-                      Watch Live
+                      Live
                     </p>
-                  </div>
-                  <div className='flex items-start space-x-3'>
-                    <p className='text-black font-semibold uppercase'>
-                      {match.round_name ? match.round_name : ""}
-                    </p>
-                    <p className='text-slate-500 text-[15px] font-medium'><span>{match.start_date ? moment(match?.start_date).format('ll') : null}</span></p>
-                    <p className='text-black font-bold text-[15px]'>{match?.start_time ? match.start_time : ""} </p>
+                    <div className='flex justify-end'>
+                      <p className='text-slate-500 text-[15px] font-medium mr-1'><span>Started at</span></p>
+                      <p className='text-black font-bold text-[15px]'>{match?.start_time ? match.start_time : ""} </p>  
+                    </div>
                   </div>
                 </div>
                 :
@@ -83,16 +77,13 @@ function Match_cards({ match }) {
             {
               match?.status == 3
                 ?
-                <div className='flex flex-col items-start '>
+                <div className='flex justify-between w-full items-start mb-auto'>
                   <div className='flex items-center space-x-3'>
-                    <p className='uppercase font-semibold text-green-600 text-sm xl:text-base flex items-center'>
+                    <p className='uppercase font-semibold text-orange-600 text-sm xl:text-base flex items-center'>
                       Finished
                     </p>
                   </div>
-                  <div className='flex items-start space-x-3 '>
-                    <p className='text-black font-semibold uppercase'>
-                      {match.round_name ? match.round_name : ""}
-                    </p>
+                  <div className='flex justify-end'>
                     <p className='text-slate-500 text-[15px] font-medium'><span>{match.start_date ? moment(match?.start_date).format('ll') : ""}</span></p>
                   </div>
                 </div>
@@ -149,8 +140,17 @@ function Match_cards({ match }) {
                 }
               </div>
             </div>
-            <div>
-              <p className='text-slate-500 font-semibold text-sm'>
+            <div className='w-full flex mt-auto'>
+              {
+                match?.status == 2 || match?.status == 3
+                ?
+                  <p className='text-slate-500 font-semibold '>
+                    {match.round_name ? match.round_name : ""}
+                  </p>
+                :
+                  null
+              }
+              <p className='text-slate-500 font-semibold text-sm ml-auto mt-1'>
                 {match?.tournaments.tournament_name}
               </p>
             </div>

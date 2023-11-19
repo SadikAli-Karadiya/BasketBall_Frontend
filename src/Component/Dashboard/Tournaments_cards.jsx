@@ -27,11 +27,11 @@ function Tournaments_cards({ tournament }) {
 
     return (
         <>
-            <div className="relative shadow-lg bg-white shadow-[#ea5a2e99] min-w-[260px] hover:scale-105  duration-300 xs:min-w-[320px] rounded-lg sm:min-w-[350px] md:min-w-[330px] max-w-[300px] h-[200px] md:h-[190px]  group" onClick={handleClick}>
+            <div className="relative shadow-lg bg-white shadow-[#ea5a2e99] min-w-[260px] hover:scale-105  duration-300 xs:min-w-[320px] rounded-lg sm:min-w-[350px] md:min-w-[330px] max-w-[300px] h-[170px] xs:h-[190px]  group cursor-pointer" onClick={handleClick}>
                 {/* <div className="relative items-center hover:scale-105 duration-300 cursor-pointer shadow-lg bg-white shadow-[#ea5a2e99] xxs:w-full xs:min-w-full sm:min-w-[100px] md:min-w-[180px]  lg:max-w-[150] xl:w-[320px]  2xl:min-w-[350px]  h-[155px] sm:h-[155px] md:h-[165px] xl:h-[155px] 2xl:h-[180px]
    group rounded-lg" onClick={handleClick}> */}
                 <div className='w-full flex justify-end items-end '>
-                    <img src="/CBL_Images/495f339d-92fe-4b3c-a820-621336d292f6.jpg" alt="" className='rounded-lg w-2/4 xs:w-2/4 sm:w-1/2 lg:w-2/5 xl:w-2/4 2xl:w-3/5' />
+                    <img src="/CBL_Images/495f339d-92fe-4b3c-a820-621336d292f6.jpg" alt="" className='rounded-lg w-2/4 xs:w-2/4 sm:w-1/2 lg:w-2.5/5 xl:w-2/4 2xl:w-2.5/5' />
                 </div>
                 {
                     tournament.status == 2
@@ -51,21 +51,21 @@ function Tournaments_cards({ tournament }) {
                     </h1>
                 </div>
                 <div className=''>
-                    <div className='bg-[#ee6730] rounded-md text-center text-sm py-1 text-white w-40 ml-5'>
-                        Ahmedabad
-                    </div>
-                    <div className='w-full flex justify-center items-center z-[2] space-x-5 mt-5 xs:mt-7 md:mt-3 lg:mt-1 xl:mt-4 '>
+                    <div className='w-full flex justify-center items-center z-[2] space-x-5 mt-5 xs:mt-6 sm:mt-4 md:mt-3 lg:mt-2 xl:mt-4'>
                         <BsCalendar2Week className=' text-base transition-all text-black' />
                         <div className='flex  justify-center items-center   '>
                             <p className=" transition-all text-black text-[10px] md:text-[12px] font-semibold xl:text-base">
-                                {moment(tournament.start_date).format('DD / MM / YY')}
+                                {moment(tournament.start_date).format('DD/MM/YYYY')}
                             </p>
                             <p className='mx-2  font-medium transition-all hidden md:block text-[#ee6730]  text-[7px] md:text-base'>to</p>
                             <p className='mx-2  font-medium transition-all md:hidden text-[#ee6730]  text-[7px] md:text-base'>/</p>
                             <p className="transition-all text-black text-[10px] md:text-[12px] font-semibold xl:text-base">
-                                {moment(tournament.end_date).format('DD / MM / YY')}
+                                {moment(tournament.end_date).format('DD/MM/YYYY')}
                             </p>
                         </div>
+                    </div>
+                    <div className='bg-[#ee6730] mt-2 rounded-md text-center text-sm py-1 text-white mx-8'>
+                        Ahmedabad
                     </div>
                 </div>
             </div>

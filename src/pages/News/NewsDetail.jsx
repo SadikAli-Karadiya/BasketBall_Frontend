@@ -128,7 +128,7 @@ const   NewsDetail = () => {
             <WhatsappShareButton
               className=""
               separator=""
-              url={`http://localhost:5173/news/${params.id}/${params.title}`}
+              url={`https://thecbl.in/news/${params.id}/${params.title}`}
               quote={"nothing "}
             >
               <WhatsappIcon

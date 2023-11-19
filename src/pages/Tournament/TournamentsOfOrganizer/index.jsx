@@ -6,7 +6,7 @@ import { MdDelete } from 'react-icons/md';
 import Heading from '../../../Component/Heading';
 import { useTournamentsOfOrganizerQuery } from '../../../services/organizer';
 import { useDeleteTournamentDetailsMutation } from '../../../services/tournament';
-import SmallLoader from '../../../component/SmallLoader';
+import SmallLoader from '../../../Component/SmallLoader';
 import { toast } from 'react-toastify';
 
 function TournamentsOfOrganizer() {

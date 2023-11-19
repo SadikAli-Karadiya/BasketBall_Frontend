@@ -10,7 +10,7 @@ import Admin from "./Admin";
 import Pools from "./Pools";
 import "./TournamentDetails.css";
 import { useNavigate, useParams } from "react-router-dom";
-import Loader from "../../../component/Loader";
+import Loader from "../../../Component/Loader";
 import { useGetTournamentDetailsQuery } from "../../../services/tournament";
 import { useIsAuthOrganizerQuery } from "../../../services/organizer";
 

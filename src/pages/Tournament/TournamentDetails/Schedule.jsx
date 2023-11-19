@@ -3,7 +3,7 @@ import moment from "moment";
 import {useNavigate, useParams} from 'react-router-dom'
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
-import SmallLoader from '../../../component/SmallLoader';
+import SmallLoader from '../../../Component/SmallLoader';
 import { useTournamentScheduleQuery } from '../../../services/organizer';
 import { useUpdateMatchDetailsMutation, useDeleteMatchMutation } from '../../../services/match';
 import { useSendScoreboardLinkMutation } from '../../../services/scoreboard';
