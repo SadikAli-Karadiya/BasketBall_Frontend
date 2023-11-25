@@ -39,7 +39,7 @@ const BasicInfo = ({ index, setIndex }) => {
         <div className="w-full  px-5  m-auto ">
           <div className="grid text-lg lg:text-base grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5  lg:gap-5">
             <div className="md:col-span-2 mt-5 flex items-center md:items-start md:justify-end flex-col">
-              <h1 className="py-2 underline underline-offset-4 px-3 text-xl text-orange-600">
+              <h1 className="py-2 pr-3 text-xl text-orange-600">
                 Basic Information
               </h1>
             </div>
@@ -74,7 +74,7 @@ const BasicInfo = ({ index, setIndex }) => {
               <input
                 type="text"
                 id="first_name"
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="first_name"
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -96,7 +96,7 @@ const BasicInfo = ({ index, setIndex }) => {
               <input
                 type="text"
                 id="middle_name"
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="middle_name"
                 value={values.middle_name}
                 onChange={handleChange}
@@ -119,7 +119,7 @@ const BasicInfo = ({ index, setIndex }) => {
               <input
                 type="text"
                 id="last_name"
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="last_name"
                 placeholder="Enter Your Last Name"
                 value={values.last_name}
@@ -134,13 +134,13 @@ const BasicInfo = ({ index, setIndex }) => {
             {/*  */}
             <div className="  ">
               <label htmlFor="mobileNo" className="text-gray-700">
-                Mobile No(Whatsapp No)
+                Mobile No (Whatsapp No)
                 <span className="text-red-500 required-dot">*</span>
               </label>
               <input
                 type="text"
                 id="mobile"
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="mobile"
                 value={values.mobile}
                 onChange={handleChange}
@@ -160,7 +160,7 @@ const BasicInfo = ({ index, setIndex }) => {
               <input
                 type="text"
                 id="alternate_mobile"
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="alternate_mobile"
                 value={values.alternate_mobile}
                 onChange={handleChange}
@@ -184,7 +184,7 @@ const BasicInfo = ({ index, setIndex }) => {
               <input
                 type="date"
                 id="date_of_birth"
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="date_of_birth"
                 value={moment(values.date_of_birth).format("YYYY-MM-DD")}
                 onChange={(e) => handleChange(e)}
@@ -201,7 +201,7 @@ const BasicInfo = ({ index, setIndex }) => {
                 Gender
                 <span className="text-red-500 required-dot">*</span>
               </label>
-              <div className="flex space-x-2 bg-white items-center text-gray-700 rounded-lg border border-gray-300 py-2 px-4">
+              <div className="mt-1 flex space-x-2 bg-white items-center text-gray-700 rounded-lg border border-gray-300 py-2 px-4">
                 <div className="flex  justify-center  items-center space-x-2">
                   <label className="cursor-pointer" htmlFor="male">
                     Male
@@ -268,7 +268,7 @@ const BasicInfo = ({ index, setIndex }) => {
               <input
                 type="text"
                 id="pincode"
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="pincode"
                 placeholder="Enter Your Pincode"
                 value={values.pincode}

@@ -66,7 +66,7 @@ function Match_cards({ match }) {
                     </p>
                     <div className='flex justify-end'>
                       <p className='text-slate-500 text-[15px] font-medium mr-1'><span>Started at</span></p>
-                      <p className='text-black font-bold text-[15px]'>{match?.start_time ? match.start_time : ""} </p>  
+                      <p className='text-black font-bold text-[15px]'>{match?.start_time ? moment(match.start_time, "HH:mm:ss").format("h:mm a") : ""} </p>  
                     </div>
                   </div>
                 </div>

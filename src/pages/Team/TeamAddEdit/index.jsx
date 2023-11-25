@@ -37,20 +37,21 @@ function TeamAddEdit() {
     handleBlur,
     handleChange,
     handleSubmit,
+    setFieldValue
   } = useFormik({
     validationSchema: TeamInfoSchema,
     initialValues: location?.state?.isEdit
       ? location.state.teamDetail
       : TeamForm.TeamInfo,
     onSubmit: (data) => {
-      // //If captain not se  lected
-      if (captain === 0) {
-        toast.error("Please select team captain");
-        return;
-      }
-
+      
       if (selectedPlayers.length < 1) {
         toast.error("Please select atleast 5 players");
+        return;
+      }
+      
+      if (captain === 0) {
+        toast.error("Please select team captain");
         return;
       }
 
@@ -126,13 +127,14 @@ function TeamAddEdit() {
       })
     );
   };
+
   React.useEffect(() => {
     if (thing.isError) {
       toast.error(thing?.error?.data?.message);
     }
     if (thing.isSuccess) {
       if (thing?.data?.success) {
-        toast.success("Team Registration Successfull ");
+        toast.success("Team Registration Successfull");
 
         navigate(`/team/profile-detail/${thing?.data?.team?.id}`, {
           state: { isPublic: true },
@@ -147,7 +149,7 @@ function TeamAddEdit() {
     }
     if (updateData.isSuccess) {
       if (updateData?.data?.success) {
-        toast.success("Team Update   Successfull ");
+        toast.success("Team Updated Successfully");
         navigate(`/team/profile-detail/${updateData?.data?.team?.id}`, {
           state: { isPublic: true },
         });
@@ -167,7 +169,7 @@ function TeamAddEdit() {
   };
 
   const handleRemovePlayer = (player_id) => {
-    resetForm("captain");
+    setFieldValue("captain", "")
     setSelectedPlayers(
       selectedPlayers.filter((item) => {
         return item.id != player_id;
@@ -367,25 +369,25 @@ function TeamAddEdit() {
           </div>
           <div className="player-selection w-full flex flex-col xl:flex-row gap-6">
             <div className="relative player-search-input-container flex flex-1 flex-col mt-9">
-              <div className="rounded-lg border-transparent flex items-center appearance-none border border-gray-300 w-full py-1 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent">
+              <div className="player-input border-orange-500 rounded-lg border-transparent flex items-center appearance-none  w-full py-1 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none  focus:border-transparent">
                 <span className="text-xl ml-4 text-gray-500">
                   <ImSearch />
                 </span>
                 <input
                   type="text"
-                  className="w-full p-2 sm:p-3 rounded-lg text-sm outline-none"
+                  className="player-input w-full border-blue-200 w-ful p-2 sm:p-3 rounded-lg text-sm outline-none"
                   placeholder="Search player by mobile no."
                   value={searchValue}
                   onChange={(e) => handlePlayerSearch(e)}
                   onFocus={() =>
                     document
                       .querySelector(".player-input")
-                      .classList.add("border-blue-200")
+                      .classList.add("border-2")
                   }
                   onBlur={() =>
                     document
                       .querySelector(".player-input")
-                      .classList.remove("border-blue-200")
+                      .classList.remove("border-2")
                   }
                 />
               </div>
@@ -440,7 +442,7 @@ function TeamAddEdit() {
             </div>
             <div className="players-list-container flex flex-col flex-1 lg:mt-0 mt-5 ">
               <h4 className="text-lg font-semibold text-center text-gray-700">
-                Selected Players
+                Selected Players (Atleast 5)
               </h4>
               <div className="players-list w-full overflow-x-auto">
                 <table className="w-full mt-2 rounded-md overflow-hidden">
@@ -464,6 +466,7 @@ function TeamAddEdit() {
                     </tr>
                   </thead>
                   <tbody className="bg-white">
+                  
                     {selectedPlayers?.length > 0 ? (
                       selectedPlayers.map((player, index) => {
                         return (
@@ -503,9 +506,9 @@ function TeamAddEdit() {
                                 className="w-4 h-4 cursor-pointer"
                                 type="radio"
                                 checked={player.id == captain}
-                                id="male"
+                                id="captain"
                                 disabled={!player.isEditable}
-                                name="gender"
+                                name="captain"
                                 value={player.id}
                                 onChange={(e) => setCaptain(e.target.value)}
                                 onBlur={(e) => setCaptain(e.target.value)}

@@ -34,7 +34,7 @@ const PrivateRoutes = () => {
   const navigate = useNavigate();
 
   const { token, user } = useSelector((state) => state.user);
-  console.log(user.is)
+  
   const { data, isLoading, isError, error } = useGetUserDataQuery();
 
   React.useEffect(() => {

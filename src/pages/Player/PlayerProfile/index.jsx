@@ -11,7 +11,6 @@ import { setBasicInfoForm } from "../../../redux/actions/Player";
 import PlayerInfo from "./PlayerInfo";
 import PlayerStatics from "./PlayerStatics";
 import { AiFillEye } from "react-icons/ai";
-import { GiExitDoor } from "react-icons/gi";
 import { ImExit } from "react-icons/im";
 import { useGetPlayerDetailsQuery } from '../../../services/player';
 import Loader from "../../../Component/Loader";
@@ -152,7 +151,6 @@ export default function PlayerProfile() {
                                     title={`Leave ${team?.teams?.team_name}`}
                                     className="hover:text-red-600"
                                   >
-                                    <ImExit />
                                   </div>
                                 </td>
                               </tr>

@@ -79,7 +79,7 @@ function TournamentsOfOrganizer() {
         <section className="min-h-screen-fit">
             <div className='mx-auto px-10  sm:px-20  md:px-20 lg:px-24 xl:px-28 2xl:px-32'>
                 <div className="xs:py-10 py-10 xl:py-14">
-                    <h1 className="xs:text-3xl sm:text-3xl md:text-4xl text-center font-bold  italic uppercase text-[#ee6730] ">All Tournaments</h1>
+                    <h1 className="xs:text-3xl sm:text-3xl md:text-4xl text-center font-bold  italic uppercase text-[#ee6730] ">Your Tournaments</h1>
                 </div>
                 {
                     pendingOrRejectedTournaments.length > 0

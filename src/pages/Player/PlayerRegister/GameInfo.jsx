@@ -116,7 +116,7 @@ const GameInfo = ({ index, setIndex }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.height}
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="height"
                 placeholder="Enter Your Height In cm"
               />
@@ -136,7 +136,7 @@ const GameInfo = ({ index, setIndex }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.weight}
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="weight"
                 placeholder="Enter Your Weight in KG"
               />
@@ -156,7 +156,7 @@ const GameInfo = ({ index, setIndex }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.playing_position}
-                className=" rounded-lg border-transparent flex-1  border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1  border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="playing_position"
               >
                 <option value={""}>Select Position</option>
@@ -185,7 +185,7 @@ const GameInfo = ({ index, setIndex }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.jersey_no}
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white     placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white     placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="jersey_no"
                 placeholder="Enter Your Jersey Number or Preferred Jersey Number "
               />
@@ -198,7 +198,7 @@ const GameInfo = ({ index, setIndex }) => {
             {/* for last name */}
             <div className="">
               <label htmlFor="Experience" className="text-gray-700">
-                Experience(Achievement)
+                Experience (Achievement)
                 <span className="text-red-500 required-dot">*</span>
               </label>
               <textarea
@@ -207,7 +207,7 @@ const GameInfo = ({ index, setIndex }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.about}
-                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="about"
                 placeholder="Write About Yourself and Your Achivement and Experience "
               />
@@ -228,7 +228,7 @@ const GameInfo = ({ index, setIndex }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.playing_medal}
-                className=" rounded-lg border-transparent flex-1  border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+                className="mt-1 rounded-lg border-transparent flex-1  border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                 name="playing_medal"
               >
                 <option value={""}>Select Medal</option>

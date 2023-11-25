@@ -106,7 +106,7 @@ function AsideMenuMain() {
                 </h1>
               </NavLink>
             </li>
-            <li className="nav-item" onClick={() => setOpen(!open)}>
+            <li className="nav-item md:hidden" onClick={() => setOpen(!open)}>
               <NavLink className={({ isActive }) => (isActive ? "active" : 'none')} to={"/player/list"} >
                 <h1 className="relative text-white text-base md:text-base lg:text-base xl:text-lg  my-5 md:my-0">
                   Players

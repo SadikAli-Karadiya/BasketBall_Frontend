@@ -68,12 +68,7 @@ const AddEditGallery = () => {
             GalleryInfo: data,
           });
           fd.append("data", ok);
-          // if (value) {
-          //   fb.append("id", value.id);
-          //   useUpdateNewsDetailsMutation(fb).then(console.log("update ho gai"));
-          // } else {
           await galleryRegistration(fd);
-          // }
         } catch (err) {
           toast.error(err.message)
         }

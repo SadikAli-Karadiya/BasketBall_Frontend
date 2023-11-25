@@ -12,7 +12,6 @@ function MatchList() {
   const [pageNo, setPageNo] = React.useState(1);
 
   const data = useGetMatchListQuery({ pageNo: pageNo - 1, status: currentTab });
-  console.log(data.data)
   return (
     <section className="min-h-screen-fit">
       <div className="xs:py-10 py-10 xl:py-14">

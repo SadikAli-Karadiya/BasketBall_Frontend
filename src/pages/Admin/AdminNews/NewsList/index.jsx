@@ -82,12 +82,8 @@ const NewsList = () => {
             NewsInfo: data,
           });
           fd.append("data", ok);
-          // if (value) {
-          //   fb.append("id", value.id);
-          //   useUpdateNewsDetailsMutation(fb).then(console.log("update ho gai"));
-          // } else {
+          
           newsRegistration(fd).then();
-          // }
         } catch (err) {
           toast.error(err.message);
         }

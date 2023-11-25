@@ -73,7 +73,7 @@ export default function PlayerAvtar({ player }) {
                 {player?.SinglePlayerDetails?.team_players[0]?.teams?.team_name ? player?.SinglePlayerDetails?.team_players[0]?.teams?.team_name : "--"}
               </span>
               <span>-</span>
-              <span className="px-2  text-xs italic bg-gray-800 font-semibold text-white rounded-lg capitalize ">
+              <span className="px-2 text-xs italic bg-gray-800 font-semibold text-white rounded-lg capitalize ">
                 {player?.SinglePlayerDetails?.playing_position}
               </span>
             </div>

@@ -70,7 +70,6 @@ function TeamRegister() {
         tournament_id: tournamentDetails.id,
         team_id: selectedTeam,
       };
-      console.log(newData)
       teamtoTournament(newData).then();
     },
   });

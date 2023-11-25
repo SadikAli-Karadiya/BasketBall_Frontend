@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 import { RxDotFilled } from 'react-icons/rx';
 import { BsCalendar2Week } from 'react-icons/bs'
@@ -7,10 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import moment from 'moment'
 
-
-
 function Tournaments_cards({ tournament }) {
-    console.log(tournament?.tournament_name?.length)
+
     const navigate = useNavigate();
     const handleClick = () => {
         navigate(`/tournament/${tournament.id}`);

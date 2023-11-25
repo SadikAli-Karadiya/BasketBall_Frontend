@@ -20,7 +20,6 @@ function TeamsList() {
     search,
   });
 
-  console.log(data)
   return (
     <section className="min-h-screen">
       <div className="xs:py-10 py-10">

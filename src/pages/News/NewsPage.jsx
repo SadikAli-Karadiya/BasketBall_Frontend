@@ -17,7 +17,7 @@ const NewsPage = () => {
   const { isLoading, data } = useGetAllNewsQuery({
     pageNo: pageNo - 1,
   });
-  console.log(data)
+
   React.useEffect(() => {
     dispatch(getNewsData());
   }, []);

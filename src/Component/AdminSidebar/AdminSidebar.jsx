@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { BsTrophy } from "react-icons/bs";
 import { GiBasketballJersey } from "react-icons/gi";
 import { MdDashboard } from "react-icons/md";
-import { IoImagesSharp } from "react-icons/io5";
-import { BiNews } from "react-icons/bi";
+import { IoImagesSharp, IoArrowBackCircle } from "react-icons/io5";
+import { BiNews, BiExit  } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
+import {logout} from '../../redux/actions/User'
+import { useDispatch } from "react-redux";
 import '../../App.css'
 
 function AdminSidebar() {
   const [show, setShow] = useState(true);
   const [tooltipStatus, setTooltipStatus] = useState(0);
+  const dispatch = useDispatch();
+
   return (
     <>
       {/* Vertical navigation starts */}
@@ -119,67 +123,63 @@ function AdminSidebar() {
                   </div>
                 </div>
                 <div className="flex items-center">
-                  <ul aria-orientation="vertical">
+                  <ul aria-orientation="vertical" className="w-full">
                     <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"/admin/dashboard"}>
                       <li
                         tabIndex={0}
                         role="button"
                         aria-label="Overview"
-                        className="cursor-pointer mt-10 hover:text-white"
-                      >
+                        className="cursor-pointer mt-10 hover:text-white flex items-center gap-4"
+                        >
                         <MdDashboard className="text-lg"/>
+                        {
+                          show
+                          ?
+                            <span>
+                              Overview
+                            </span>
+                          :
+                          null
+                        }
                       </li>
                     </NavLink>
-                    {/* <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/all-teams"}>
-                      <li
-                        tabIndex={0}
-                        role="button"
-                        aria-label="Teams"
-                        className="cursor-pointer mt-6 hover:text-white"
-                      >
-                        <svg
-                          width={20}
-                          height={20}
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M1.6665 18.3333C1.6665 16.5652 2.36888 14.8695 3.61913 13.6193C4.86937 12.369 6.56506 11.6667 8.33317 11.6667C10.1013 11.6667 11.797 12.369 13.0472 13.6193C14.2975 14.8695 14.9998 16.5652 14.9998 18.3333H13.3332C13.3332 17.0073 12.8064 15.7355 11.8687 14.7978C10.931 13.8601 9.65925 13.3333 8.33317 13.3333C7.00709 13.3333 5.73532 13.8601 4.79764 14.7978C3.85995 15.7355 3.33317 17.0073 3.33317 18.3333H1.6665ZM8.33317 10.8333C5.57067 10.8333 3.33317 8.59584 3.33317 5.83334C3.33317 3.07084 5.57067 0.833336 8.33317 0.833336C11.0957 0.833336 13.3332 3.07084 13.3332 5.83334C13.3332 8.59584 11.0957 10.8333 8.33317 10.8333ZM8.33317 9.16667C10.1748 9.16667 11.6665 7.675 11.6665 5.83334C11.6665 3.99167 10.1748 2.5 8.33317 2.5C6.4915 2.5 4.99984 3.99167 4.99984 5.83334C4.99984 7.675 6.4915 9.16667 8.33317 9.16667ZM15.2365 12.2525C16.4076 12.7799 17.4015 13.6344 18.0987 14.7131C18.7958 15.7918 19.1666 17.0489 19.1665 18.3333H17.4998C17.5 17.37 17.222 16.4271 16.6991 15.618C16.1762 14.8089 15.4307 14.1681 14.5523 13.7725L15.2357 12.2525H15.2365ZM14.6632 2.84417C15.5028 3.19025 16.2206 3.77795 16.7257 4.53269C17.2307 5.28744 17.5002 6.1752 17.4998 7.08334C17.5002 8.22695 17.0729 9.32936 16.302 10.174C15.531 11.0187 14.4721 11.5446 13.3332 11.6483V9.97084C13.9506 9.8824 14.5235 9.59835 14.9676 9.16038C15.4117 8.72242 15.7037 8.1536 15.8008 7.53745C15.8979 6.92129 15.7948 6.29025 15.5068 5.73696C15.2188 5.18368 14.761 4.73729 14.2007 4.46334L14.6632 2.84417Z"
-                            fill="#9CA3AF"
-                          />
-                        </svg>
-                      </li>
-                    </NavLink> */}
                     <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/all-tournaments"}>
                       <li
                         tabIndex={0}
                         role="button"
                         aria-label="Tournaments Request"
-                        className="cursor-pointer mt-6 hover:text-white"
+                        className="w-full cursor-pointer mt-6 hover:text-white flex items-center gap-4"
                       >
                         <BsTrophy className=" text-lg" />
+                        {
+                          show
+                          ?
+                            <span>
+                              Tournaments Request
+                            </span>
+                          :
+                          null
+                        }
                       </li>
                     </NavLink>
-                    {/* <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/players"}>
-                      <li
-                        tabIndex={0}
-                        role="button"
-                        aria-label="Players"
-                        className="cursor-pointer mt-6 hover:text-white"
-                      >
-                        <GiBasketballJersey className=" text-xl" />
-                      </li>
-                    </NavLink> */}
 
                     <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/news"}>
                       <li
                         tabIndex={0}
                         role="button"
                         aria-label="News"
-                        className="cursor-pointer mt-6 hover:text-white"
+                        className="cursor-pointer mt-6 hover:text-white flex items-center gap-4"
                       >
                         <BiNews className=" text-xl" />
+                        {
+                          show
+                          ?
+                            <span>
+                              News
+                            </span>
+                          :
+                          null
+                        }
                       </li>
                     </NavLink>
                     <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/gallery"}>
@@ -187,9 +187,57 @@ function AdminSidebar() {
                         tabIndex={0}
                         role="button"
                         aria-label="Gallery"
-                        className="cursor-pointer mt-6 hover:text-white"
+                        className="cursor-pointer mt-6 hover:text-white flex items-center gap-4"
                       >
                         <IoImagesSharp className=" text-lg" />
+                         {
+                          show
+                          ?
+                            <span>
+                              Gallery
+                            </span>
+                          :
+                          null
+                        }
+                      </li>
+                    </NavLink>
+
+                    <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"/"}>
+                      <li
+                        tabIndex={0}
+                        role="button"
+                        aria-label="Gallery"
+                        className="cursor-pointer mt-6 hover:text-white flex items-center gap-4"
+                      >
+                        <IoArrowBackCircle className=" text-xl" />
+                        {
+                          show
+                          ?
+                            <span>
+                              Go Back
+                            </span>
+                          :
+                          null
+                        }
+                      </li>
+                    </NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} onClick={()=> dispatch(logout())} to={"/"}>
+                      <li
+                        tabIndex={0}
+                        role="button"
+                        aria-label="Gallery"
+                        className="cursor-pointer mt-6 hover:text-white flex items-center gap-4"
+                      >
+                        <BiExit className=" text-xl" />
+                        {
+                          show
+                          ?
+                            <span>
+                              Logout
+                            </span>
+                          :
+                          null
+                        }
                       </li>
                     </NavLink>
                     {/* <li
@@ -212,43 +260,6 @@ function AdminSidebar() {
                       </svg>
                     </li> */}
                   </ul>
-                  {show && (
-                    <div className="w-full mt-10">
-                      <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"/admin/dashboard"}>
-                        <p className="text-base leading-4 pl-3 cursor-pointer hover:text-white">
-                          Overview
-                        </p>
-                      </NavLink>
-                      {/* <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/all-teams"}>
-                        <p className="text-base leading-4 pl-3 cursor-pointer pt-7 hover:text-white">
-                          Teams
-                        </p>
-                      </NavLink> */}
-                      <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/all-tournaments"}>
-                        <p className="text-base leading-4 pl-3 cursor-pointer pt-7 hover:text-white">
-                          Tournaments Request
-                        </p>
-                      </NavLink>
-                      {/* <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/players"}>
-                        <p className="text-base leading-4 pl-3 cursor-pointer pt-7 hover:text-white">
-                          Players
-                        </p>
-                      </NavLink> */}
-                      <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/news"}>
-                        <p className="text-base leading-4 pl-3 cursor-pointer pt-7 hover:text-white">
-                          News
-                        </p>
-                      </NavLink>
-                      <NavLink className={({ isActive }) => (isActive ? "active" : 'non-active')} to={"admin/gallery"}>
-                        <p className="text-base leading-4 pl-3 cursor-pointer pt-7 hover:text-white">
-                          Gallery
-                        </p>
-                      </NavLink>
-                      {/* <p className="text-base leading-4 pl-3 cursor-pointer pt-7 hover:text-white">
-                        Notifications
-                      </p> */}
-                    </div>
-                  )}
                 </div>
               </div>
             </div>

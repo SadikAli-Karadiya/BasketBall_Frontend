@@ -20,12 +20,6 @@ function MatchLive({ slides }) {
   let slideInterval;
   let intervalTime = 5000
 
-  // const prevSlide = () => {
-  //   const isFirstSlide = currentIndex === 0;
-  //   const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-  //   setCurrentIndex(newIndex);
-  // };
-
   const nextSlide = () => {
     const isLastSlide = currentIndex === slides?.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
@@ -97,7 +91,7 @@ function MatchLive({ slides }) {
                               {
 
 
-                                moment(item?.start_date).format('DD / MM / YY')
+                                moment(item?.start_date).format('DD/MM/YYYY')
 
                               }
                             </p>

@@ -26,7 +26,6 @@ export default function PlayerInfo({ PlayerDetail }) {
       <div className="xs:py-10 py-5 xl:py-5">
         <h1 className="xs:text-4xl sm:text-4xl  text-center font-bold  italic uppercase text-[#ee6730]  ">Player Information</h1>
       </div>
-      {/*  */}
       <div className="text-left pt-4 ">
         <h2 className="text-xl py-2">Basic Information</h2>
 
@@ -64,9 +63,15 @@ export default function PlayerInfo({ PlayerDetail }) {
 
           <div className="bg-white px-2 py-1 rounded-lg border-2 border-orange-100 shadow-xl">
             <span className="text-xs md:text-base">From : </span>
-            <span className="text-xs md:text-sm font-semibold ">
-              {city ? city : ""}, {state ? state : ""}
-            </span>
+            {
+              city == '' || state == '' 
+              ? 
+                "--"
+              :
+                <span className="text-xs md:text-sm font-semibold ">
+                  {city ? city : ""}, {state ? state : ""}
+                </span>
+            }
           </div>
         </div>
       </div>

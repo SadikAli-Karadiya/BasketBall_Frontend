@@ -14,7 +14,7 @@ function TeamProfileDetail() {
   const { team_id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const { isLoading, data } = useGetTeamDetailQuery({
+  const { isLoading, data, refetch } = useGetTeamDetailQuery({
     teamId: team_id,
   });
 
@@ -30,7 +30,7 @@ function TeamProfileDetail() {
             ...team,
             first_name: team.players.first_name,
             id: team.players.id,
-            playing_position: team.players.playing_position,
+            playing_position: team.playing_position,
           };
         }),
       },
@@ -47,7 +47,6 @@ function TeamProfileDetail() {
 
   const handleUnenrollTournament = (data) => {
     try {
-      console.log("sa", data);
     } catch (error) {
       if (error instanceof AxiosError) {
         toast.error(error.response.data.message);
@@ -60,6 +59,10 @@ function TeamProfileDetail() {
   const navigateToTournamentProfile = (tournament_id) => {
     navigate(`/tournament-profile/${tournament_id}`);
   };
+
+  React.useEffect(()=>{
+    refetch();
+  },[location?.state?.isPublic == true])
 
   React.useEffect(() => {
     handleTabChange();
@@ -115,7 +118,7 @@ function TeamProfileDetail() {
                         </label>
                         <div className="border-2 border-orange-100 px-2 py-2 rounded-lg bg-white capitalize font-medium">
                           <p>
-                            {data?.data.asst_coach_name?.length > 2 ||
+                            {data?.data.asst_coach_name?.length == "" ||
                             !data?.data.asst_coach_name
                               ? "--"
                               : data?.data.asst_coach_name}
@@ -436,8 +439,7 @@ function TeamProfileDetail() {
                         {" "}
                         <span className="font-bold ">Note : </span>{" "}
                         <span className="text-base ">
-                          You can Edit Your Players for match in match Detail
-                          page
+                          You can edit your players for match in match detail page
                         </span>{" "}
                       </div>
                     )}
