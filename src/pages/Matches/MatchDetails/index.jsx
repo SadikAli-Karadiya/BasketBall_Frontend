@@ -78,7 +78,7 @@ const MatchDetails = () => {
                       opacity: 0,
                     }}
                     animate={{
-                      backgroundColor: tab.active ? "#ee6730" : "",
+                      backgroundColor: tab.active ? "#374151" : "",
                       color: tab.active ? "#ffffff" : "",
                       opacity: 1,
                     }}

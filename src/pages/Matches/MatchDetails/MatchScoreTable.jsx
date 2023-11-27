@@ -48,9 +48,6 @@ export default function MatchScoreTable({ data }) {
                 </tr>
                 <tr>
                   <th className="bg-gray-700 text-white px-3 py-2 font-medium tracking-wide">
-                    Fouls
-                  </th>
-                  <th className="bg-gray-700 text-white px-3 py-2 font-medium tracking-wide">
                     Points
                   </th>
                   <th className="bg-gray-700 text-white px-3 py-2 font-medium tracking-wide">
@@ -58,6 +55,9 @@ export default function MatchScoreTable({ data }) {
                   </th>
                   <th className="bg-gray-700 text-white px-3 py-2 font-medium tracking-wide">
                     Points
+                  </th>
+                  <th className="bg-gray-700 text-white px-3 py-2 font-medium tracking-wide">
+                    Fouls
                   </th>
                 </tr>
               </thead>
@@ -68,17 +68,17 @@ export default function MatchScoreTable({ data }) {
                       <td className="border-t px-3 py-2">
                         {q?.quarter_number}
                       </td>
-                      <td className="border-t px-3 py-2 sm:text-sm lg:text-base">
-                        {q?.team_1_fouls}
-                      </td>
-                      <td className="border-t px-3 py-2 sm:text-sm lg:text-base">
+                      <td className="border-t px-3 py-2 sm:text-sm lg:text-base font-semibold">
                         {q?.team_1_points}
                       </td>
                       <td className="border-t px-3 py-2 sm:text-sm lg:text-base">
-                        {q?.team_2_fouls}
+                        {q?.team_1_fouls}
+                      </td>
+                      <td className="border-t px-3 py-2 sm:text-sm lg:text-base font-semibold">
+                        {q?.team_2_points}
                       </td>
                       <td className="border-t px-3 py-2 sm:text-sm lg:text-base">
-                        {q?.team_2_points}
+                        {q?.team_2_fouls}
                       </td>
                       <td className="border-t px-3 py-2 sm:text-sm lg:text-base">
                         {q?.status !== 0 ? (

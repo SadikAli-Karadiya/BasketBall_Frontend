@@ -33,8 +33,8 @@ function Tournaments_cards({ tournament }) {
                     tournament.status == 2
                         ?
                         <div className='flex items-end justify-start  w-full absolute top-0 left-0 '>
-                            <p className='uppercase font-semibold bg-red-600 rounded-tl-lg text-white text-[10px] md:text-[12px] xl:text-sm flex items-center px-1'>
-                                <RxDotFilled className='md:text-base xl:text-2xl' />
+                            <p className='uppercase font-semibold bg-red-600 rounded-tl-lg text-white text-[10px] md:text-[12px]  flex items-center px-1'>
+                                <RxDotFilled className='md:text-base animate-ping' />
                                 Live
                             </p>
                         </div>

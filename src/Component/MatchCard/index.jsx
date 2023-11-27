@@ -103,7 +103,7 @@ function MatchCard({ match }) {
                 {
                   !match.start_date
                   ?
-                    "Coming soon..."
+                    "To Be Announced"
                   : 
                     <>
                       {moment(match.start_date).format("DD-MM-YYYY")}

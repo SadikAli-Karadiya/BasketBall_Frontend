@@ -61,7 +61,7 @@ function Match_cards({ match }) {
                 <div className='w-full flex flex-col items-start mb-auto'>
                   <div className='w-full flex items-center justify-between'>
                     <p className='uppercase font-semibold text-green-600 text-sm xl:text-base flex items-center'>
-                      <RxDotFilled className='text-2xl' />
+                      <RxDotFilled className='text-2xl animate-ping' />
                       Live
                     </p>
                     <div className='flex justify-end'>

@@ -10,6 +10,7 @@ import moment from 'moment'
 
 
 function MatchLive({ slides }) {
+  slides = slides?.slice(0, 5)
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [count, setcount] = useState(0);
@@ -69,14 +70,14 @@ function MatchLive({ slides }) {
                       {
                         item?.status == 1
                           ?
-                          <div className='bg-green-600 flex items-center pr-2 py-[2px] lg:py-[3px] px-2 rounded-md text-white  '>
+                          <div className='bg-red-600 flex items-center pr-2 py-[2px] lg:py-[3px] px-2 rounded-md text-white  '>
                             <p className='font-semibold text-[10px] sm:text-[12px] lg:text-sm'>Scheduled</p>
                           </div>
                           :
                           item?.status == 2
                             ?
-                            <div className='bg-red-600 flex items-center pr-2 py-[2px] lg:py-[3px] px-2 rounded-md text-white lg:mb-2 '>
-                              <RxDotFilled className='lg:mt-1 text-sm' />
+                            <div className='bg-green-600 flex items-center pr-2 py-[2px] lg:py-[3px] px-2 rounded-md text-white lg:mb-2 '>
+                              <RxDotFilled className='lg:mt-1 text-sm animate-ping' />
                               <p className='font-semibold text-[10px] sm:text-[12px] lg:text-sm'>LIVE</p>
                             </div>
                             :

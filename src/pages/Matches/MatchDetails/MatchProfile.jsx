@@ -4,6 +4,8 @@ import { CgMediaLive } from "react-icons/cg";
 import { VscRefresh } from "react-icons/vsc";
 
 export default function MatchProfile({ data }) {
+
+  console.log(data?.data?.match_data?.data)
   return (
     <div className="relative bg-gradient-to-r  py-5 bg-clip-border   mx-auto  from-orange-700 via-current to-blue-600">
       {/* heading start here */}
@@ -11,14 +13,25 @@ export default function MatchProfile({ data }) {
         <h1 className="text-xl xs:text-xl md:text-3xl mt-10 md:mt-5 lg:text-5xl uppercase leading-tight tracking-widest flex font-bold justify-center items-center  text-white opacity-40  mx-auto  ">
           {data?.data?.match_data?.data?.tournaments?.tournament_name}
         </h1>
-        {data?.data?.match_data?.data?.status == 3 && (
-          <p className="pt-4 text-center  text-gray-500 text-xl sm:text-2xl">
-            <span className="text-green-600 font-medium">
-              {data?.data?.match_data?.data?.won_by_team?.team_name}{" "}
-            </span>
-            won the match
-          </p>
-        )}
+        {
+          data?.data?.match_data?.data?.status == 3 
+          ?
+          
+            data?.data?.match_data?.data?.won_by_team == null
+            ?
+              <p className="pt-4 text-center text-gray-500 text-xl sm:text-2xl font-medium">
+                Match Draw
+              </p>
+            :
+              <p className="pt-4 text-center  text-gray-500 text-xl sm:text-2xl">
+                <span className="text-green-600 font-medium">
+                  {data?.data?.match_data?.data?.won_by_team?.team_name}{" "}
+                </span>
+                won the match
+              </p>
+          : 
+            null
+        }
       </div>
 
       {data?.data?.match_data?.data?.status == 2 && (
@@ -77,7 +90,7 @@ export default function MatchProfile({ data }) {
               <div className="text-4xl px-6 scale-110 text-center bg-white shadow-xl text-black italic  py-1 text-">
                 Vs
               </div>
-              <div className=" bg-blue-500 shadow-xl rounded-b-none rounded-r-xl rounded-br-none  px-8 py-2">
+              <div className=" bg-blue-500 shadow-xl rounded-b-none rounded-r-xl rounded-br-none  px-8 py-2 text-center">
                 {data?.data?.match_data?.live_quarter?.team_2_points}
               </div>
               <div className="col-span-3 bg-black text-white py-1 shadow-2xl flex justify-around  w-full mx-auto mb-2 font-semibold rounded-b-xl text-lg items-center space-x-3">

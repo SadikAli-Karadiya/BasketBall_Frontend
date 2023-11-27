@@ -15,7 +15,7 @@ import './pagination.css'
 // <Paginate data={carData} setPaginationData={setPaginationData} itemsPerPage={10} />
 
 
-function Paginate({data, setPaginationData, itemsPerPage = 10}) {
+function Paginate({data, setPaginationData, itemsPerPage = 12}) {
     const [itemOffset, setItemOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [pageCount, setPageCount] = useState(0);

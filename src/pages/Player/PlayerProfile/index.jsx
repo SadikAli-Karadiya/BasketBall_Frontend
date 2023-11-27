@@ -23,13 +23,12 @@ export default function PlayerProfile() {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user)
   const { data, isLoading, error } = useGetPlayerDetailsQuery(params.id);
-  const [currentTab, setCurrentTab] = React.useState(2);
+  const [currentTab, setCurrentTab] = React.useState(3);
   const [currentTabMatches, setCurrentTabMatches] = React.useState([]);
   let allMatches =
-    data?.data && data?.data.team_1_matches && data?.data.team_2_matches
-      ? [...data?.data.team_1_matches, ...data?.data.team_2_matches]
+    data?.SinglePlayerDetails
+      ? [...data?.SinglePlayerDetails.player_matches]
       : [];
-
 
   React.useEffect(() => {
     handleTabChange();
@@ -37,8 +36,8 @@ export default function PlayerProfile() {
 
   function handleTabChange() {
     setCurrentTabMatches((e) => {
-      return allMatches.filter((match) => {
-        return match?.status == currentTab;
+      return allMatches.filter((item) => {
+        return item.matches.status == currentTab;
       });
     });
   }
@@ -175,16 +174,16 @@ export default function PlayerProfile() {
                   <div className="px-1 text-lg w-48 xs:w-52 md:w-64 mx-auto  py-1 text-white  flex  text-center justify-center items-center mt-2 rounded-full space-x-2 bg-black">
                     <motion.span
                       animate={{
-                        backgroundColor: currentTab === 2 ? "#ee6730" : "#000000",
+                        backgroundColor: currentTab === 3 ? "#ee6730" : "#000000",
                       }}
-                      onClick={(e) => setCurrentTab(2)}
+                      onClick={(e) => setCurrentTab(3)}
                       className=" cursor-pointer    rounded-full  w-1/2 py-2 text-sm shadow-2xl"
                     >
                       Past
                     </motion.span>
                     <motion.span
                       animate={{
-                        backgroundColor: currentTab === 2 ? "#000000" : "#ee6730",
+                        backgroundColor: currentTab === 1 ? "#ee6730" : "#000000",
                       }}
                       onClick={(e) => setCurrentTab(1)}
                       className=" bg-black cursor-pointer  rounded-full  w-1/2 py-2 text-sm shadow-2xl"
@@ -192,18 +191,20 @@ export default function PlayerProfile() {
                       Upcomming
                     </motion.span>
                   </div>
-                  <div className="   px-2 py-2 player-container w-full flex flex-nowrap gap-8 sm:gap-16 md:gap-20 mt-10 overflow-x-auto ">
-                    {currentTabMatches.length > 0 ? (
-                      currentTabMatches.map((match, index) => {
-                        return <MatchCard key={index} match={match} />;
-                      })
-                    ) : (
-                      <div className="w-full text-center mt-12">
-                        <h4 className="text-lg font-medium text-gray-400">
-                          No Match Found
-                        </h4>
-                      </div>
-                    )}
+                  <div className="px-2 py-2 player-container w-full flex justify-center">
+                    <div className="flex flex-nowrap gap-8 sm:gap-16 md:gap-20 mt-10 overflow-x-auto">
+                      {currentTabMatches.length > 0 ? (
+                        currentTabMatches.map((item, index) => {
+                          return <MatchCard key={index} match={item.matches} />;
+                        })
+                      ) : (
+                        <div className="w-full text-center mt-12">
+                          <h4 className="text-lg font-medium text-gray-400">
+                            No Match Found
+                          </h4>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

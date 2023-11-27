@@ -279,7 +279,7 @@ function Schedule({isOrganizer}) {
                                                                                     disabled={ editMatchId == match.id && sendingLink.isLoading
                                                                                     }
                                                                                     className={` text-blue-500 hover:underline cursor-pointer font-medium`} onClick={()=> handleViewScorer(match)}>View</button>
-                                                                                    <button className={`${editMatchId == match.id && sendingLink.isLoading ? 'opacity-60': ''} mx-3 text-orange-300 hover:underline cursor-pointer font-medium`} onClick={()=> handleSendLink(match)}>{editMatchId == match.id && sendingLink.isLoading ? 'sending...' : 'Send Link'}</button>
+                                                                                    <button className={`${editMatchId == match.id && sendingLink.isLoading ? 'opacity-60': ''} mx-3 text-orange-300 hover:underline cursor-pointer font-medium`} onClick={()=> handleSendLink(match)}>{editMatchId == match.id && sendingLink.isLoading ? 'Sending...' : 'Send Link'}</button>
                                                                                 </span>
                                                                             </td>
                                                                     }

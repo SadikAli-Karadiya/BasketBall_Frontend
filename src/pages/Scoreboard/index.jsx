@@ -161,7 +161,7 @@ function index() {
 
     const handleTeam2Foul = () =>{
         Swal.fire({
-            title: 'Are to sure give foul?',
+            title: 'Are you sure to give foul?',
             text: "",
             icon: 'warning',
             showCancelButton: true,
@@ -447,8 +447,8 @@ function index() {
                             <div className='flex lg:flex-col md:flex-row flex-col lg:space-x-0 space-x-5'>
                                 <div className="flex space-x-2 lg:mt-0 sm:mt-3 mt-1">
                                     <PointButton text="Free Throw" disabled={disableBtns} onClick={()=>handleTeam1Point("free shot")} />
-                                    <PointButton text="3 point" disabled={disableBtns} onClick={()=>handleTeam1Point("in 3 point")} />
-                                    <PointButton text="2 point" disabled={disableBtns} onClick={()=>handleTeam1Point("out 3 point")} />
+                                    <PointButton text="2 point" disabled={disableBtns} onClick={()=>handleTeam1Point("in 3 point")} />
+                                    <PointButton text="3 point" disabled={disableBtns} onClick={()=>handleTeam1Point("out 3 point")} />
                                 </div>
                                 <div className="flex flex-col mt-3 ">
                                     <div className='pb-1 lg:block hidden'>
@@ -490,8 +490,8 @@ function index() {
                             <div className='flex lg:flex-col md:flex-row flex-col lg:space-x-0 space-x-5'>
                                 <div className="flex space-x-2 lg:mt-0 sm:mt-3 mt-1">
                                     <PointButton text="Free Throw" disabled={disableBtns} onClick={()=>handleTeam2Point("free shot")} />
-                                    <PointButton text="3 point" disabled={disableBtns} onClick={()=>handleTeam2Point("in 3 point")} />
-                                    <PointButton text="2 point" disabled={disableBtns} onClick={()=>handleTeam2Point("out 3 point")} />
+                                    <PointButton text="2 point" disabled={disableBtns} onClick={()=>handleTeam2Point("in 3 point")} />
+                                    <PointButton text="3 point" disabled={disableBtns} onClick={()=>handleTeam2Point("out 3 point")} />
                                 </div>
                                 <div className="flex flex-col mt-3 ">
                                     <div className='pb-1 lg:block hidden'>
