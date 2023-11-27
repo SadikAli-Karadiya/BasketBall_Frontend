@@ -18,7 +18,7 @@ export default function ({ data }) {
 
       {/* info  */}
 
-      <div className="grid gap-5 grid-cols-1 md:grid-cols-3">
+      <div className="grid gap-5 grid-cols-1 md:grid-cols-3 mt-7">
         <div className="  ">
           <label htmlFor="required-email" className="text-gray-700">
             Game Level
@@ -28,7 +28,7 @@ export default function ({ data }) {
             id="height"
             disabled={true}
             value={data?.data?.match_data?.data?.tournaments?.level}
-            className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
+            className="capitalize rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
             name="height"
           />
         </div>
@@ -92,7 +92,7 @@ export default function ({ data }) {
         {/*  */}
 
         {/*  */}
-        <div className="  ">
+        {/* <div className="  ">
           <label htmlFor="required-email" className="text-gray-700">
             Scorekeeper
           </label>
@@ -104,7 +104,7 @@ export default function ({ data }) {
             className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
             name="height"
           />
-        </div>
+        </div> */}
         {/*  */}
       </div>
     </div>

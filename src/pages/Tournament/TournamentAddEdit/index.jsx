@@ -238,10 +238,20 @@ function TournamentAddEdit() {
       formdata.append('winner_prize', data.winner_prize)
       formdata.append('runner_prize', data.runner_prize)
       formdata.append('about', data.about_tournament)
+
+      data.sponsors = data.sponsors.filter((item) => item.name != '' && item.logo != '')
+      data.referees = data.referees.filter((item) => item.name != '' && item.mobile != '' && item.type != '')
+
+
       formdata.append('referees', JSON.stringify(data.referees))
       formdata.append('sponsors', JSON.stringify(data.sponsors))
+
+      console.log(data.sponsors)
+      console.log(data.referees)
       for (let i = 0; i < data.sponsors.length; i++) {
-        formdata.append(`sponsors_logo${i}`, data.sponsors[i].logo)
+        if(data.sponsors[i].name != '' && data.sponsors[i].logo != ''){
+          formdata.append(`sponsors_logo${i}`, data.sponsors[i].logo)
+        }
       }
 
       setIsSubmitting(true);
@@ -710,7 +720,7 @@ function TournamentAddEdit() {
                         name={`referees.${index}.name`}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values?.referees[index].name}
+                        value={values?.referees[index]?.name}
                       />
                       {touched.referees && touched.referees[index] && errors.referees && errors.referees[index] ? (
                         <small className="text-sm font-semibold text-red-600 px-1">
@@ -830,18 +840,18 @@ function TournamentAddEdit() {
                           onBlur={handleBlur}
                         />
                         {
-                          values.sponsors[index].logo != '' || sponsor.logo != ''
+                          values.sponsors[index]?.logo != '' || sponsor.logo != ''
                             ?
                             <div className="w-12 h-12  rounded-full overflow-hidden mx-3">
                               <img
                                 src={
-                                  values.sponsors[index].logo != ''
+                                  values.sponsors[index]?.logo != ''
                                     ?
-                                    !values.sponsors[index].logo.name && !values.sponsors[index].logo.size
+                                    !values.sponsors[index]?.logo.name && !values.sponsors[index]?.logo.size
                                       ?
-                                      values.sponsors[index].logo
+                                      values.sponsors[index]?.logo
                                       :
-                                      URL.createObjectURL(values.sponsors[index].logo)
+                                      URL.createObjectURL(values.sponsors[index]?.logo)
                                     :
                                     sponsor.logo
                                 }

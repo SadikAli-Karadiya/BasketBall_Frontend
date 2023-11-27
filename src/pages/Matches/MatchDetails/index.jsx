@@ -29,14 +29,14 @@ const MatchDetails = () => {
       name: "Players",
       active: false,
     },
-    {
-      name: "Referee",
-      active: false,
-    },
-    {
-      name: "MVP",
-      active: false,
-    },
+    // {
+    //   name: "Referee",
+    //   active: false,
+    // },
+    // {
+    //   name: "MVP",
+    //   active: false,
+    // },
     {
       name: "About",
       active: false,
@@ -46,8 +46,7 @@ const MatchDetails = () => {
   const tabs = [
     <MatchScoreTable data={data} />,
     <TeamPlayers data={data} />,
-    "",
-    "",
+    // "",
     <AboutMatch data={data} />,
   ];
   function HandleChange(id) {
@@ -70,8 +69,8 @@ const MatchDetails = () => {
         <div>
           {" "}
           <MatchProfile data={data} />
-          <div className="bg-black p-6 ">
-            <div className="sm:flex  space-x-6 text-center   sm:text-lg overflow-x-auto whitespace-nowrap p-2 font-semibold  justify-evenly gap-2 sm:gap-5 text-gray-400">
+          <div className="bg-black px-6 py-3 ">
+            <div className="sm:flex  space-x-6 text-center  sm:text-lg overflow-x-auto whitespace-nowrap p-2 font-semibold  justify-center gap-2 sm:gap-5 text-gray-400">
               {menu.map((tab, index) => {
                 return (
                   <motion.div

@@ -1,6 +1,8 @@
 import React from 'react'
 
 function Sponsors({sponsors}) {
+
+  
   return (
     <div className="">
       <div className="flex flex-wrap gap-6 py-5 justify-center items-center">

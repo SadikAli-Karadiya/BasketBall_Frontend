@@ -5,7 +5,7 @@ export default function MatchScoreTable({ data }) {
     <div id="scoretable" className=" mx-auto text-center">
       {data?.data?.match_data?.data?.status == 1 && (
         <div className="text-lg md:text-2xl py-8 font-medium text-gray-600 ">
-          Currently not available
+          Visible when match starts
         </div>
       )}
       {(data?.data?.match_data?.data?.status == 2 ||
@@ -16,7 +16,7 @@ export default function MatchScoreTable({ data }) {
               <thead>
                 <tr className="text-left">
                   <th
-                    className="py-2 px-3 sticky top-0 bg-gray-800 text-white"
+                    className="py-2 px-3 sticky top-0 bg-gray-800 text-white text-center"
                     rowSpan="2"
                   >
                     Quarter
@@ -40,7 +40,7 @@ export default function MatchScoreTable({ data }) {
                     </div>
                   </th>
                   <th
-                    className="py-2 px-3 sticky top-0 bg-gray-800 text-white"
+                    className="py-2 px-3 sticky top-0 bg-gray-800 text-white text-center"
                     rowSpan="2"
                   >
                     Winner

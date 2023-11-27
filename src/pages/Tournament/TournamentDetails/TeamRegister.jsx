@@ -96,27 +96,33 @@ function TeamRegister() {
           <div className="text-2xl font-semibold text-center px-3 py-16 text-gray-800">
             {!tournamentDetails?.is_registration_open &&
               (tournamentDetails?.status == 2 ? (
-                <div className="">
-                  {" "}
+                <div className="flex flex-col">
                   Tournament registration is closed. Thank you for your
                   interest.
+
+                  <span className="mt-10 text-base" onClick={()=> navigate(-1)}>{'<'} Go back</span>
                 </div>
               ) : tournamentDetails?.status == 3 ? (
-                <div>
+              
+                <div className="flex flex-col">
                   The tournament has ended. Congratulations to the winners and
                   thank you to all who participated.
+
+                  <span className="mt-10 text-base" onClick={()=> navigate(-1)}>{'<'} Go back</span>
                 </div>
               ) : (
-                <div>
+                <div className="flex flex-col">
                   Tournament registration will be opening soon, please stay
                   tuned for further announcements.
+
+                  <span className="mt-10 text-base" onClick={()=> navigate(-1)}>{'<'} Go back</span>
                 </div>
               ))}
           </div>
           {tournamentDetails?.is_registration_open && (
             <>
               <div className="py-5 w-full">
-                <h1 className="font-semibold text-lg md:text-xl lg:text-2xl ">
+                <h1 className="font-semibold text-base sm:text-lg md:text-xl lg:text-2xl ">
                   Select Team <span className="text-red-600 font-bold">*</span>
                 </h1>
                 <div className=" py-2 rounded-md  ">
@@ -148,7 +154,7 @@ function TeamRegister() {
                         );
                       })
                     ) : (
-                      <div className="flex justify-center w-full items-center mt-16 md:mt-24">
+                      <div className="flex justify-center w-full items-center mt-10 sm:mt-12 md:mt-16">
                         <AiOutlineTeam className="text-2xl xs:text-3xl sm:text-5xl text-gray-400 mr-2" />
                         <p className="text-xs xs:text-sm sm:text-lg font-medium text-gray-400">
                           Please make your team to Register in Tournament
@@ -161,7 +167,7 @@ function TeamRegister() {
               <form action="" onSubmit={handleSubmit}>
                 <div className="flex flex-col sm:flex-row lg:flex-col sm:space-x-10 lg:space-x-0 items-center py-5 xl:mt-10">
                   <div className="flex flex-col px-2 rounded-md w-full">
-                    <label className="mb-2 text-lg md:text-xl lg:text-2xl text-start font-semibold">
+                    <label className="mb-2 text-base sm:text-lg md:text-xl lg:text-2xl  text-start font-semibold">
                       Select Category{" "}
                       <span className="text-red-600 font-bold">*</span>
                     </label>
@@ -208,7 +214,7 @@ function TeamRegister() {
                     ) : null}
                   </div>
                   <div className="flex flex-col px-2 rounded-md w-full py-4">
-                    <label className="mb-2 text-lg md:text-xl lg:text-2xl text-start font-semibold">
+                    <label className="mb-2 text-base sm:text-lg md:text-xl lg:text-2xl  text-start font-semibold">
                       Select Age Cutoff{" "}
                       <span className="text-red-600 font-bold">*</span>
                     </label>
@@ -263,7 +269,7 @@ function TeamRegister() {
                     >
                       <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#ee6730] rounded-lg group-hover:w-full group-hover:h-56"></span>
                       <span className="relative text-sm xl:text-base">
-                        Cancle
+                        Cancel
                       </span>
                     </button>
                     <button

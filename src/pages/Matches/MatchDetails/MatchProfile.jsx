@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { CgMediaLive } from "react-icons/cg";
+import { VscRefresh } from "react-icons/vsc";
 
 export default function MatchProfile({ data }) {
   return (
@@ -106,7 +107,7 @@ export default function MatchProfile({ data }) {
         <div className="text-center w-2/5 sm:w-2/6 order-3  space-y-2">
           <img
             className="xxs:w-14 xxs:h-14 xs:w-20 xs:h-20 md:w-32 md:h-32 mx-auto  bg-white  object-cover p-1  shadow-lg border border-gray-300 rounded-full  "
-            src="/CBL_Images/logo3.png"
+            src={data?.data?.match_data?.data?.team_2?.logo}
           />
           <h2 className="xxs:text-sm line-clamp-1 xs:text-lg md:text-xl text-orange-100 font-semibold">
             {data?.data?.match_data?.data?.team_2?.team_name}
@@ -118,7 +119,7 @@ export default function MatchProfile({ data }) {
       {data?.data?.match_data?.data?.status == 1 && (
         <p className="py-3 text-gray-200 text-xs lg:text-xl text-center">
           {!data?.data?.match_data?.data?.start_date ? (
-            "Coming soon..."
+            "To Be Announced..."
           ) : (
             <>
               {moment(data?.data?.match_data?.data?.start_date).format(
@@ -134,6 +135,16 @@ export default function MatchProfile({ data }) {
           )}
         </p>
       )}
+
+      {
+        data?.data?.match_data?.data?.status == 2 
+        ?
+          <div className="flex justify-center">
+            <button className="flex items-center gap-1 text-gray-400 hover:text-gray-200" onClick={()=> data.refetch()}> <VscRefresh className={`${data.isLoading ? 'animate-spin' : ''}`}/> Refresh</button>
+          </div>
+        :
+          null
+      }
     </div>
   );
 }

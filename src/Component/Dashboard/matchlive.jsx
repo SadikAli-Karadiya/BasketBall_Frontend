@@ -101,13 +101,13 @@ function MatchLive({ slides }) {
                                 {
                                   item?.start_date ?
 
-                                    moment(item?.start_date).format('DD / MM / YY')
+                                    moment(item?.start_date).format('DD/MM/YYYY')
                                     :
                                     "Comming Soon"
                                 }
                               </p>
                               <p className='text-black font-bold text-[15px]'>
-                                {item?.start_time ? item?.start_time : ""}
+                                {item?.start_time ? moment(item?.start_time, "HH:mm:ss").format("h:mm a") : ""}
                               </p>
                             </div>
                           }

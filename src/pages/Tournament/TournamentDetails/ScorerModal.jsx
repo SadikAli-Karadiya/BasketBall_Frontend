@@ -119,13 +119,14 @@ function ScorerModal({ showModal, handleShowModal, matchId, refetchData, isViewS
     }
   };
 
+  
   React.useEffect(() => {
     if(scorerDetails?.name){
       setScorerName(scorerDetails.name)
       setScorerEmail(scorerDetails.email)
       setScorerMobile(scorerDetails.mobile)
     }
-  },[scorerDetails])
+  },[])
 
   return (
     <Modal open={showModal} onClose={handleModalClose}>
@@ -172,7 +173,7 @@ function ScorerModal({ showModal, handleShowModal, matchId, refetchData, isViewS
                 name=""
                 id=""
                 value={scorerName}
-                disabled={isViewScorerDetails}
+                disabled={isViewScorerDetails && !isEdit}
                 className="w-full border border-[#6B7280] outline-none focus:border-blue-500 text-white px-2 py-2  rounded-md"
                 style={{
                   backgroundColor: "rgb(75 85 99)",
@@ -214,7 +215,7 @@ function ScorerModal({ showModal, handleShowModal, matchId, refetchData, isViewS
                 name=""
                 id=""
                 value={scorerMobile}
-                disabled={isViewScorerDetails}
+                disabled={isViewScorerDetails && !isEdit}
                 className="w-full border border-[#6B7280] outline-none focus:border-blue-500 text-white px-2 py-2  rounded-md"
                 style={{
                   backgroundColor: "rgb(75 85 99)",

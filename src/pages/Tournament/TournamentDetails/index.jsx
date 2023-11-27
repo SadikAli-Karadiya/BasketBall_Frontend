@@ -51,10 +51,6 @@ function TournamentDetails() {
   ];
 
   const handleRegisterInTournament = () => {
-    // if(!tournamentdetails.is_registration_open){
-    //   return toast.error('Registration closed');
-    // }
-    // navigate(`/${tournament.tournament_id}/team-register`)
     navigate(`/tournament/team-register/${tournament_id}`);
   };
 

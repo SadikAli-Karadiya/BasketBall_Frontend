@@ -23,7 +23,7 @@ function Schedule({isOrganizer}) {
     const [isViewScorerDetails, setIsViewScorerDetails] = React.useState(false)
     const [scorerDetails, setScorerDetails] = React.useState({})
 
-    const {data, isLoading, refetch } = useTournamentScheduleQuery(tournament_id)
+    const {data, isLoading, refetch, isSuccess } = useTournamentScheduleQuery(tournament_id)
    
     const [updateMatchDetails, {...updatingMatch}] = useUpdateMatchDetailsMutation()
     const [deleteMatch, {...deletingMatch}] = useDeleteMatchMutation()
@@ -121,8 +121,13 @@ function Schedule({isOrganizer}) {
             scorer_token: match.scorekeeper.token,
             team_1: match.team_1.team_name, 
             team_2: match.team_2.team_name, 
-            match_start_date: moment(match.start_date).format("DD/MM/YYYY"), 
-            match_start_time: moment(match.start_time, 'h:mm a').format("h:mm A"), 
+            match_start_date: match.start_date != '' && match.start_date != undefined 
+                            ? moment(match.start_date).format("DD/MM/YYYY")
+                            : 'To Be Announced...'
+                            , 
+            match_start_time: match.start_date != '' && match.start_date != undefined 
+                            ? moment(match.start_time, 'h:mm a').format("h:mm A")
+                            : 'To Be Announced...', 
             address: match.address
         })
 
@@ -141,7 +146,7 @@ function Schedule({isOrganizer}) {
         if(data?.success){
             setSchedule(data.schedule)
         }
-    },[data])
+    },[data, isSuccess])
 
     if(isLoading){
         return <SmallLoader/>
@@ -322,15 +327,19 @@ function Schedule({isOrganizer}) {
                         </div>
                 }
             </div>
-            <ScorerModal 
-                showModal={showAddScorerModal} 
-                handleShowModal={setShowAddScorerModal} 
-                matchId={editMatchId} 
-                refetchData={refetch}
-                isViewScorerDetails={isViewScorerDetails}
-                setIsViewScorerDetails={setIsViewScorerDetails}
-                scorerDetails={scorerDetails}
-            />
+            {
+                showAddScorerModal 
+                && 
+                <ScorerModal 
+                    showModal={showAddScorerModal} 
+                    handleShowModal={setShowAddScorerModal} 
+                    matchId={editMatchId} 
+                    refetchData={refetch}
+                    isViewScorerDetails={isViewScorerDetails}
+                    setIsViewScorerDetails={setIsViewScorerDetails}
+                    scorerDetails={scorerDetails}
+                />
+            }
         </div>
     )
 }
