@@ -207,9 +207,8 @@ function AsideMenuMain() {
             </li>
           </ul>
           <div className="flex justify-center space-x-7 pt-10">
-            <AiFillInstagram className=" rounded-full hover:text-white hover:bg-[#ee6730] text-[26px] bg-white text-[#ee6730] h-10 w-10 p-2 duration-200 hover:scale-110 cursor-pointer" />
-            <FaFacebookSquare className=" rounded-full hover:text-white hover:bg-[#ee6730] text-[26px] bg-white text-[#ee6730] h-10 w-10 p-2 duration-200 hover:scale-110 cursor-pointer" />
-            <AiOutlineTwitter className=" rounded-full hover:text-white hover:bg-[#ee6730] text-[26px] bg-white text-[#ee6730] h-10 w-10 p-2 duration-200 hover:scale-110 cursor-pointer" />
+            <AiFillInstagram className=" rounded-full hover:text-white hover:bg-[#ee6730] text-[26px] bg-white text-[#ee6730] h-10 w-10 p-2 duration-200 hover:scale-110 cursor-pointer" onClick={()=> window.open('https://www.instagram.com/corporate_basketball_league/', '_blank')} />
+            <FaFacebookSquare className=" rounded-full hover:text-white hover:bg-[#ee6730] text-[26px] bg-white text-[#ee6730] h-10 w-10 p-2 duration-200 hover:scale-110 cursor-pointer" onClick={()=> window.open('https://www.facebook.com/profile.php?id=100083664213577', '_blank')} />
           </div>
         </div>
 
