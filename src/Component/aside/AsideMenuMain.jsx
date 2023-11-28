@@ -4,9 +4,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebookSquare } from "react-icons/fa";
-import { AiOutlineTwitter } from "react-icons/ai";
 import DropDownmenu from "./DropDownmenu";
-import { NavLink, Link, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 function AsideMenuMain() {
   const { user } = useSelector((state) => state.user);

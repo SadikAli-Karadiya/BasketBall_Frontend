@@ -11,7 +11,7 @@ import { useUpdateProfileMutation } from "../../services/user"
 const profileSchema = Yup.object({
   full_name: Yup.string().min(2).max(25).matches(/^[a-zA-Z ]+$/, "Please enter only characters").required("Please enter full name"),
   email: Yup.string().email("Please enter valid email").required("Please enter your email"),
-  phone: Yup.string().min(10).max(10).matches(/^[0-9]+$/, "Please enter only numbers").phone(null, true, "Invalid phone number").required("Please enter your phone number"),
+  phone: Yup.string("Please enter valid phone number").min(10).max(10).matches(/^[0-9]+$/, "Please enter only numbers").required("Please enter your phone number").nullable(),
   password: Yup.string().required("Please enter password"),
   confirmpassword: Yup.string().required("Confirm password is required").oneOf([Yup.ref("password"), null], "Password not match"),
 });
@@ -40,7 +40,8 @@ function VisitorProfile() {
     validationSchema: profileSchema,
     onSubmit(data) {
       Swal.fire({
-        title: "You sure to update your profile!",
+        title: "Are you sure to update your profile?",
+        text:"",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -114,7 +115,7 @@ function VisitorProfile() {
                   name="email"
                   id="email"
                   value={values.email}
-                  disabled={isEnable}
+                  disabled={true}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className="rounded-md py-2 px-3 bg-slate-100 focus:bg-white outline-blue-200"
@@ -131,7 +132,7 @@ function VisitorProfile() {
                   name="phone"
                   id="phone"
                   value={values.phone}
-                  disabled={true}
+                  disabled={isEnable}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className="rounded-md py-2 px-3 bg-slate-100 focus:bg-white outline-blue-200"
