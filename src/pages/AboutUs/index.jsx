@@ -14,7 +14,7 @@ function AboutUs() {
     "Tournament updates",
     "Team registration",
     "Team Profile",
-    "Volleyball news",
+    "Basketball news",
     "Scoreboard",
     "Set points",
     "Time-outs",

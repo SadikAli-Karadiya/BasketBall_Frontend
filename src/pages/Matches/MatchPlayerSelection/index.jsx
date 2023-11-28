@@ -47,7 +47,7 @@ export default function MatchPlayerSelection() {
         newArray.push({
           player_id: player.players.id,
           match_id: MatchData?.match?.id,
-          is_caption: player.players.id == captain,
+          is_captain: player.players.id == captain,
           team_id: MatchData?.team.id,
         });
       }
@@ -61,7 +61,7 @@ export default function MatchPlayerSelection() {
       return toast.error("Please Select Captain");
     }
     if (!selectedPlayers.includes(captain)) {
-      return toast.error("Caption must be selected");
+      return toast.error("Captain must be selected");
     }
 
     matchPlayers({ body: finalPlayer, team_id: MatchData?.team.id });
@@ -71,11 +71,11 @@ export default function MatchPlayerSelection() {
     <div className="px-6 py-12">
       <div className="flex flex-row justify-center items-center">
         <h1 className=" text-2xl md:text-4xl font-bold ">
-          <span className={`mr-2 ${team1Color}`}>
+          <span className={`mr-3 ${team1Color}`}>
             {MatchData?.match?.team_1.team_name}
           </span>
-          <span className="italic opacity-50 text-gray-500">VS</span>
-          <span className={`ml-2 ${team2Color}`}>
+          <span className="italic opacity-50 text-gray-500">Vs</span>
+          <span className={`ml-3 ${team2Color}`}>
             {MatchData?.match?.team_2.team_name}
           </span>
         </h1>
@@ -90,7 +90,7 @@ export default function MatchPlayerSelection() {
             >
               <div className="sm:px-4 sm:py-2 ">Player Name</div>
               <div className="sm:px-4 sm:py-2 ">Captain</div>
-              <div className="sm:px-4 sm:py-2 ">Select/Not Select</div>
+              <div className="sm:px-4 sm:py-2 ">Select / Unselect</div>
             </div>
 
             {MatchData?.teamPlayers?.map((player) => (

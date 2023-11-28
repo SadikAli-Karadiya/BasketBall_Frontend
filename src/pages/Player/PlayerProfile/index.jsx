@@ -54,7 +54,7 @@ export default function PlayerProfile() {
     });
   };
 
-
+  console.log(data?.player_teams)
 
   return (
     <section className="min-h-screen-fit">
@@ -105,7 +105,7 @@ export default function PlayerProfile() {
               <div className="flex flex-col ">
                 <div className=" p-4 space-y-8  mt-4">
                   <div className="xs:py-10 py-10">
-                    <h1 className="xs:text-5xl text-6xl  text-center font-bold  italic uppercase text-[#ee6730]  ">Team</h1>
+                    <h1 className="xs:text-5xl text-6xl  text-center font-bold  italic uppercase text-[#ee6730]  ">Teams</h1>
                   </div>
                   {data?.SinglePlayerDetails?.id != params.id && (
                     <div className="flex  mx-auto">

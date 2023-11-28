@@ -6,7 +6,6 @@ import { IoMdPerson } from 'react-icons/io';
 import { Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import Heading from '../../Component/Heading';
 import sendEmail from '../../hooks/SendEmail'
 import { toast } from "react-toastify";
 
@@ -63,7 +62,7 @@ const ContactUs = () => {
           <h1 className="xs:text-3xl sm:text-3xl md:text-4xl text-center font-bold  italic uppercase text-[#ee6730]  ">Contact Us</h1>
         </div>
         <div className='flex justify-start -z-50'>
-          <div className='right-content w-full sm:w-2/4 lg:mx-32 md:mx-28 sm:mx-20 '>
+          <div className='right-content w-full sm:w-2/4 lg:mx-32 md:mx-28 sm:mx-20 mx-7 '>
             <h1 className='capitalize lg:mt-10 mb-5 sm:text-4xl text-xl font-medium text-[#ee6730]'>Get in touch</h1>
             <form onSubmit={handleSubmit}>
               <div className="">
@@ -163,7 +162,7 @@ const ContactUs = () => {
       </section>
 
       <section className='FAQs'>
-        <div className='flex justify-start lg:mx-32 md:mx-28 sm:mx-20 mx-10 my-2'>
+        <div className='flex justify-start lg:mx-32 md:mx-28 sm:mx-20 mx-7 my-2'>
           <div className='left-content w-3/4 lg:my-24 md:my-16 my-12'>
             <div className=''>
               <h1 className='capitalize mt-2 mb-5 sm:text-4xl text-xl font-medium text-[#ee6730]'>Frequently asked questions</h1>
@@ -236,8 +235,8 @@ const ContactUs = () => {
       </section>
 
       <section className='quick-support'>
-        <div className='grid grid-cols-1 lg:mx-32 md:mx-28 sm:mx-20 mx-10 my-2'>
-          <div className='bottom-content lg:mb-32 md:mb-28 mb-20'>
+        <div className='grid grid-cols-1 lg:mx-32 md:mx-28 sm:mx-20 mx-7 my-2'>
+          <div className='bottom-content'>
             <div className='grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
               <div className='location mx-0 mb-10'>
                 <div className='flex flex-row sm:flex-col'>
@@ -253,8 +252,7 @@ const ContactUs = () => {
                   <HiPhone className='text-[#ee6730] text-2xl' />
                   <h1 className='ml-2 sm:ml-0 capitalize text-[#ee6730] font-medium mb-4'>Call us</h1>
                 </div>
-                <p className='text-gray-800 tracking-wide mb-1'>Phone +91 70411 06701</p>
-                <p className='text-gray-800 tracking-wide'>Phone +91 72848 55130</p>
+                <p className='text-gray-800 tracking-wide mb-1'>+91 70411 06701</p>
               </div>
 
               <div className='email mx-0 mb-10'>
@@ -262,7 +260,7 @@ const ContactUs = () => {
                   <IoMdMailOpen className='text-[#ee6730] text-2xl' />
                   <h1 className='ml-2 sm:ml-0 capitalize text-[#ee6730] font-medium mb-4'>Email us</h1>
                 </div>
-                <p className='text-gray-800 tracking-wide mb-1'>wellbenix@gmail.com</p>
+                <p className='text-gray-800 tracking-wide mb-1'>contact.cbl@gmail.com</p>
               </div>
             </div>
           </div>

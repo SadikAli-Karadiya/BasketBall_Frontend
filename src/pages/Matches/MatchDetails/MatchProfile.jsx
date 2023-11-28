@@ -5,7 +5,6 @@ import { VscRefresh } from "react-icons/vsc";
 
 export default function MatchProfile({ data }) {
 
-  console.log(data?.data?.match_data?.data)
   return (
     <div className="relative bg-gradient-to-r  py-5 bg-clip-border   mx-auto  from-orange-700 via-current to-blue-600">
       {/* heading start here */}
