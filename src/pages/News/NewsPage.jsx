@@ -41,12 +41,20 @@ const NewsPage = () => {
                 <p className='text-xs xs:text-sm sm:text-lg lg:text-xl font-medium text-gray-400'>News not found</p>
               </div>
               :
-              <div className="mx-auto px-20 sm:px-24  md:px-28 ">
+              <div className="mx-auto px-4 xs:px-10  md:px-20 ">
                 <div className="flex xs:flex-col lg:flex-row lg:space-y-0 lg:space-x-14 xs:space-x-0 xs:space-y-10 space-x-14">
-                  <div className=" col-span-3 row-span-1 xl:w-[71%] xl:h-full ">
-                    <NewsCard news={data?.AllNews?.[0]} />
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:px-0 md:px-4">
+                    {/* <div className="flex gap-8"> */}
+                      {
+                        data?.AllNews.map((news, index)=>{
+                          return(
+                            <NewsCard news={news} />
+                          )
+                        })
+                      }
+                    {/* </div> */}
                   </div>
-                  <div className="flex flex-col lg:flex-row lg:space-y-0 xl:flex-col xl:space-y-5 space-y-5 xl:w-[29%]">
+                  {/* <div className="flex flex-col lg:flex-row lg:space-y-0 xl:flex-col xl:space-y-5 space-y-5 xl:w-[29%]">
                     <h1 className="hidden xl:block px-2 font-bold text-center text-3xl italic underline ">
                       {" "}
                       Latest <span className="text-black">Update</span>
@@ -58,7 +66,7 @@ const NewsPage = () => {
                         <NewsCard key={3} small={true} news={data?.AllNews?.[2]} />
                       }
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="grid py-3 grid-cols-1 lg:grid-cols-3 gap-12 mt-10">
 
@@ -72,7 +80,7 @@ const NewsPage = () => {
         }
 
 
-        <div className='mx-auto px-20 py-12 sm:px-24 sm:py-12 md:px-28 md:py-16'>
+        <div className='mx-auto px-4 pb-10 xs:px-10 sm:pb-12 md:px-20 md:py-12'>
           <Pagination
             total={data && data.pageCount ? data.pageCount : 0}
             current={pageNo}
