@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import { useDisqualifyTeamMutation, useRequalifyTeamMutation } from '../../../services/organizer';
 
-function TournamentTeamCard({isOrganizer, teamDetails, is_disqualified, tournament_teams_id, teamCategoryType, refetchData}) {
+function TournamentTeamCard({isOrganizer, teamDetails, is_disqualified, tournament_teams_id, teamCategoryType, is_tournament_completed, refetchData}) {
     const navigate = useNavigate();
     const {tournament_id} = useParams()
 
@@ -80,7 +80,7 @@ function TournamentTeamCard({isOrganizer, teamDetails, is_disqualified, tourname
                         <div className='flex space-x-4'>
                             <h3 className="text-gray-200 font-medium sm:text-lg md:text-xl xl:text-2xl cursor-pointer hover:opacity-80" onClick={handleNavigateToTeamProfile}>{teams.team_name}</h3>
                             {
-                                isOrganizer
+                                isOrganizer && !is_tournament_completed
                                 ?
                                     is_disqualified
                                     ?

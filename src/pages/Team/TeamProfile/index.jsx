@@ -3,12 +3,19 @@ import TeamCard from "../../../Component/TeamCard";
 import Heading from "../../../Component/Heading";
 import { AiOutlineTeam } from "react-icons/ai";
 import { useGetuserTeamsQuery } from "../../../services/team";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../../Component/Loader";
 
 function TeamProfile() {
-  const userId = 1;
+  const {user} = useSelector((state) => state.user);
+
+  const userId = user.id;
 
   const teamData = useGetuserTeamsQuery({ userId });
 
+  if(teamData.isLoading){
+    return <Loader/>
+  }
   return (
     <section className="min-h-screen-fit">
       <div className="mx-auto px-10 py-12 sm:px-20 sm:py-12 md:px-20 md:py-16 lg:px-24 xl:px-28 2xl:px-32">

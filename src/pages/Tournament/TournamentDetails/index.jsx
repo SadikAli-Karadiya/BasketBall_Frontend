@@ -42,7 +42,7 @@ function TournamentDetails() {
     <Matches matches={tournamentDetails.matches} />,
     <Teams isOrganizer={isOrganizer} teams={tournamentDetails.tournament_teams}  tournamentDetails={tournamentDetails} refetchData={refetch} />,
     <Pools tournamentTeams={tournamentDetails.tournament_teams} gender_types={tournamentDetails.gender_types} age_categories={tournamentDetails.age_categories} />,
-    <Schedule isOrganizer={isOrganizer} />,
+    <Schedule isOrganizer={isOrganizer} refetchData={refetch} />,
     <Prize winner_prize={tournamentDetails.winner_prize} runner_prize={tournamentDetails.runner_prize} />,
     <Sponsors sponsors={tournamentDetails.tournament_sponsors} />,
     <Gallery galleryDetails={tournamentDetails.gallery} refetchData={refetch} />,

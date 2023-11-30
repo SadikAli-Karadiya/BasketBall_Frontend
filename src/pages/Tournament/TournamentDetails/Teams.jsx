@@ -151,7 +151,9 @@ function Teams({isOrganizer, teams, tournamentDetails, refetchData}) {
                 teamCategoryType={item} 
                 is_disqualified={item.is_disqualified} 
                 tournament_teams_id={item.id} 
-                refetchData={refetchData} />;
+                refetchData={refetchData} 
+                is_tournament_completed = {tournamentDetails.status == 3}
+                />;
               })
             })
           }

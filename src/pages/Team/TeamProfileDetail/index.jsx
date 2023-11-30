@@ -8,7 +8,6 @@ import MatchCard from "../../../Component/MatchCard";
 import { useGetTeamDetailQuery } from "../../../services/team";
 import Loader from "../../../Component/Loader";
 import moment from "moment";
-import { array } from "yup";
 
 function TeamProfileDetail() {
   const { team_id } = useParams();

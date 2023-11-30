@@ -151,7 +151,7 @@ function AsideMenuMain() {
             >
               <NavLink className={({ isActive }) => (isActive ? "active" : 'none')} to={"/About"} >
                 <h1 className="relative text-white text-base md:text-base lg:text-base xl:text-lg my-[16px] lg:my-0">
-                  About
+                  About Us
                 </h1>
               </NavLink>
             </li>
@@ -179,14 +179,14 @@ function AsideMenuMain() {
             <li className="nav-item" onClick={() => setOpen(!open)}>
               <NavLink className={({ isActive }) => (isActive ? "active" : 'none')} to={"/contact"} >
                 <h1 className="relative text-white text-base md:text-base lg:text-base xl:text-lg my-[16px] lg:my-0">
-                  Contact
+                  Contact Us
                 </h1>
               </NavLink>
             </li>
             <li className="nav-item md:hidden" onClick={() => setOpen(!open)}>
               <NavLink className={({ isActive }) => (isActive ? "active" : 'none')} to={"/About"} >
                 <h1 className="relative text-white text-base md:text-base lg:text-base xl:text-lg my-[16px] lg:my-0">
-                  About
+                  About Us
                 </h1>
               </NavLink>
             </li>

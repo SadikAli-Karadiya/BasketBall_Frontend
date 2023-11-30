@@ -39,14 +39,14 @@ const PublicLayout = () => {
                             <li className="nav-item" onClick={() => setOpen(!open)}>
                                 <NavLink className={({ isActive }) => (isActive ? "active" : 'none')} to={"/about"} >
                                     <h1 className='relative text-white text-base md:text-lg lg:text-base xl:text-lg  my-5 lg:my-0'>
-                                        About
+                                        About Us
                                     </h1>
                                 </NavLink>
                             </li>
                             <li className="nav-item" onClick={() => setOpen(!open)}>
                                 <NavLink className={({ isActive }) => (isActive ? "active" : 'none')} to={"/contact"} >
                                     <h1 className='relative text-white text-base md:text-lg lg:text-base xl:text-lg  my-5 lg:my-0'>
-                                        Contact
+                                        Contact Us
                                     </h1>
                                 </NavLink>
                             </li>
@@ -64,7 +64,7 @@ const PublicLayout = () => {
                                     </h1>
                                 </NavLink>
                             </li>
-                            <div className='flex pl-3 space-x-4'>
+                            <div className='flex flex-wrap lg:pl-3 xs:space-x-4'>
                                 <li onClick={() => setOpen(!open)} className=''>
                                     <NavLink to={"/login"}>
                                         <button
