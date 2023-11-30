@@ -57,7 +57,7 @@ const PlayerList = () => {
                               <img
                                 src={player?.team_players[0]?.teams?.logo ? player?.team_players[0]?.teams?.logo : ""}
                                 alt=""
-                                className="w-28 h-28 opacity-20 "
+                                className="w-28 h-28 object-cover opacity-20 "
                               />
                             </div>
                             <div className=" flex flex-col  px-5 sm:px-8 lg:px-12  sm:flex-row w-full h-full absolute top-0 content-start py-2 ">

@@ -81,23 +81,27 @@ export default function MatchScoreTable({ data }) {
                         {q?.team_2_fouls}
                       </td>
                       <td className="border-t px-3 py-2 sm:text-sm lg:text-base">
-                        {q?.status !== 0 ? (
+                        {q?.status !== 1 ? (
                           "--"
                         ) : (
-                          <div className="flex items-center  justify-center">
-                            <div
-                              className={`h-4 w-4 rounded-full bg-${
-                                q?.won_by_team_id ==
-                                data?.data?.match_data?.data?.team_1.id
-                                  ? "orange"
-                                  : "blue"
-                              }-500 mr-2`}
-                            ></div>
-                            {q?.won_by_team_id ==
-                            data?.data?.match_data?.data?.team_1.id
-                              ? data?.data?.match_data?.data?.team_1.team_name
-                              : data?.data?.match_data?.data?.team_2.team_name}
-                          </div>
+                          q.won_by_team_id == null
+                          ?
+                            <span className="text-gray-400">Draw</span>
+                          :
+                            <div className="flex items-center  justify-center">
+                              <div
+                                className={`h-4 w-4 rounded-full bg-${
+                                  q?.won_by_team_id ==
+                                  data?.data?.match_data?.data?.team_1.id
+                                    ? "orange"
+                                    : "blue"
+                                }-500 mr-2`}
+                              ></div>
+                              {q?.won_by_team_id ==
+                              data?.data?.match_data?.data?.team_1.id
+                                ? data?.data?.match_data?.data?.team_1.team_name
+                                : data?.data?.match_data?.data?.team_2.team_name}
+                            </div>
                         )}
                       </td>
                     </tr>

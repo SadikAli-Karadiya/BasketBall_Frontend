@@ -35,7 +35,7 @@ function TeamRegister() {
         navigate(`/team/profile-detail/${something?.data?.data.team_id}`, {
           state: { isPublic: true },
         });
-        toast.success("Team Registration Successfull ");
+        toast.success("Team Registration Successful");
       }
     }
   }, [something.isError, something.isSuccess]);

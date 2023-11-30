@@ -9,19 +9,19 @@ export default function ({ PlayerDetail }) {
           <h1 className="text-xl md:text-2xl font-bold">
             {PlayerDetail?.SinglePlayerDetails?.player_statistics[0]?.matches_played ? PlayerDetail?.SinglePlayerDetails?.player_statistics[0]?.matches_played : "0"}
           </h1>
-          <span className="text-sm md:text-lg text-gray-200">Total Match</span>
+          <span className="text-sm md:text-lg text-gray-200">Total Matches</span>
         </div>
         <div className="text-center  p-2 ">
           <h1 className="text-xl md:text-2xl   text-green-600 font-bold">
             {PlayerDetail?.SinglePlayerDetails?.player_statistics[0]?.matches_won ? PlayerDetail?.SinglePlayerDetails?.player_statistics[0]?.matches_won : "0"}
           </h1>
-          <span className="text-sm md:text-lg text-gray-200">Match Won</span>
+          <span className="text-sm md:text-lg text-gray-200">Matches Won</span>
         </div>
         <div className="text-center  p-2 text-red-600 ">
           <h1 className="text-xl md:text-2xl  font-bold">
             {PlayerDetail?.SinglePlayerDetails?.player_statistics[0]?.matches_lost ? PlayerDetail?.SinglePlayerDetails?.player_statistics[0]?.matches_lost : "0"}
           </h1>
-          <span className="text-sm md:text-lg text-gray-200">Match loss</span>
+          <span className="text-sm md:text-lg text-gray-200">Matches Lost</span>
         </div>
         <div className="text-center  p-2 text-green-600 ">
           <h1 className="text-xl md:text-2xl  font-bold">

@@ -134,7 +134,7 @@ function TeamAddEdit() {
     }
     if (thing.isSuccess) {
       if (thing?.data?.success) {
-        toast.success("Team Registration Successfull");
+        toast.success("Team Registration Successful");
 
         navigate(`/team/profile-detail/${thing?.data?.team?.id}`, {
           state: { isPublic: true },

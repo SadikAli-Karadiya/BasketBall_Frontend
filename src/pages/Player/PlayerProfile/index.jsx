@@ -22,9 +22,10 @@ export default function PlayerProfile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user)
-  const { data, isLoading, error } = useGetPlayerDetailsQuery(params.id);
+  const { data, isLoading, error, isSuccess } = useGetPlayerDetailsQuery(params.id);
   const [currentTab, setCurrentTab] = React.useState(3);
   const [currentTabMatches, setCurrentTabMatches] = React.useState([]);
+
   let allMatches =
     data?.SinglePlayerDetails
       ? [...data?.SinglePlayerDetails.player_matches]
@@ -53,8 +54,6 @@ export default function PlayerProfile() {
       },
     });
   };
-
-  console.log(data?.player_teams)
 
   return (
     <section className="min-h-screen-fit">
@@ -123,7 +122,7 @@ export default function PlayerProfile() {
                               Team Name
                             </th>
                             <th className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3  text-sm md:text-base uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                              Total Players
+                              Matches Contribution
                             </th>
                             <th className="px-6 bg-gray-50 text-gray-500 align-middle border border-solid border-gray-100 py-3  text-sm md:text-base uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                               Action
@@ -131,9 +130,9 @@ export default function PlayerProfile() {
                           </tr>
                         </thead>
                         <tbody>
-                          {data?.SinglePlayerDetails?.team_players.map((team) => {
+                          {data?.SinglePlayerDetails?.team_players.map((team, index) => {
                             return (
-                              <tr className="cursor-pointer border-b">
+                              <tr key={index} className="cursor-pointer border-b">
                                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0  text-sm md:text-base whitespace-nowrap p-4 text-left text-gray-700 capitalize">
                                   {team?.teams?.team_name}
                                 </th>

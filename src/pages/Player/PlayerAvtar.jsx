@@ -45,7 +45,6 @@ export default function PlayerAvtar({ player }) {
                   <div className="">
                     <p className="text-start py-2 text-slate-700">
                       {player.SinglePlayerDetails.about}
-                      {/* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis ut, rem repellat quam quo, nihil temporibus, libero commodi perferendis nam et sunt quaerat exercitationem laborum ipsam! Temporibus harum itaque sint. */}
                     </p>
 
                   </div>
@@ -68,7 +67,7 @@ export default function PlayerAvtar({ player }) {
             <h1 className="text-3xl text-center text-gray-900">
               {player?.SinglePlayerDetails?.first_name} {player?.SinglePlayerDetails?.last_name}
             </h1>
-            <div className="flex items-center justify-center">
+            {/* <div className="flex items-center justify-center">
               <span className="px-2 text-xs italic bg-[#ee6730] font-semibold text-white rounded-lg ">
                 {player?.SinglePlayerDetails?.team_players[0]?.teams?.team_name ? player?.SinglePlayerDetails?.team_players[0]?.teams?.team_name : "--"}
               </span>
@@ -76,7 +75,7 @@ export default function PlayerAvtar({ player }) {
               <span className="px-2 text-xs italic bg-gray-800 font-semibold text-white rounded-lg capitalize ">
                 {player?.SinglePlayerDetails?.playing_position}
               </span>
-            </div>
+            </div> */}
 
             <div className=" w-full flex justify-center items-center">
               <div className="flex items-center justify-center w-1/2 h-full">

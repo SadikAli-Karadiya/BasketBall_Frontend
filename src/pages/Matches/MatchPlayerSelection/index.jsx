@@ -35,7 +35,7 @@ export default function MatchPlayerSelection() {
     }
     if (matchPlayersData.isSuccess) {
       if (matchPlayersData?.data?.success) {
-        toast.success("Team Registration Successfull ");
+        toast.success("Team Registration Successful");
         navigate(`/match-details/${MatchData?.match?.id}`);
       }
     }

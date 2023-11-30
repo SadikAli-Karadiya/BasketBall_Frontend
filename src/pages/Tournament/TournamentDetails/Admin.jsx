@@ -277,7 +277,7 @@ function Admin({tournamentDetails, refetchData, teams}) {
             <div className="md:w-56">
               <Button
                 margin={false}
-                text="Upload Gallery Image"
+                text="Upload Gallery Images"
                 dataModalTarget="authentication-modal"
                 dataModalToggle="authentication-modal"
                 onClick={handleImageUpload}

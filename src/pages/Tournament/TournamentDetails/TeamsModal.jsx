@@ -61,7 +61,7 @@ function TeamsModal({openTeamsModal, handleOpenTeamsModal}) {
         }
         resetModal()
         handleOpenTeamsModal()
-        toast.success('Registration successfull')
+        toast.success('Registration successful')
     }
 
     return (
