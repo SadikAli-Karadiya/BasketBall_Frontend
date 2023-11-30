@@ -87,7 +87,7 @@ const BasicInfo = ({ index, setIndex }) => {
                   : null}
               </span>
             </div>
-            {/* for last name */}
+            {/* for middle name */}
             <div className="  ">
               <label htmlFor="middleName" className="text-gray-700">
                 Middle Name
@@ -131,7 +131,7 @@ const BasicInfo = ({ index, setIndex }) => {
               </span>
             </div>
 
-            {/*  */}
+            {/* whatsapp no */}
             <div className="  ">
               <label htmlFor="mobileNo" className="text-gray-700">
                 Mobile No (Whatsapp No)
@@ -151,7 +151,7 @@ const BasicInfo = ({ index, setIndex }) => {
                 {errors.mobile && touched.mobile ? errors.mobile : null}
               </span>
             </div>
-            {/* for last name */}
+            {/* for alternate number */}
             <div className="  ">
               <label htmlFor="alternativeNo" className="text-gray-700">
                 Alternative Number
@@ -173,9 +173,8 @@ const BasicInfo = ({ index, setIndex }) => {
                   : null}
               </span>
             </div>
-            {/* for last name */}
 
-            {/* end row */}
+            {/* DOB */}
             <div className="  ">
               <label htmlFor="dob" className="text-gray-700">
                 Date of Birth
@@ -195,7 +194,7 @@ const BasicInfo = ({ index, setIndex }) => {
                 {errors.date_of_birth && touched.date_of_birth ? errors.date_of_birth : null}
               </span>
             </div>
-            {/* for last name */}
+            {/* Gender */}
             <div className=" ">
               <label htmlFor="gender" className="text-gray-700">
                 Gender
@@ -259,7 +258,7 @@ const BasicInfo = ({ index, setIndex }) => {
                 {errors.gender && touched.gender ? errors.gender : null}
               </span>
             </div>
-            {/* for last name */}
+            {/* Pincode */}
             <div className="  ">
               <label htmlFor="required-email" className="text-gray-700">
                 Pincode
@@ -279,7 +278,6 @@ const BasicInfo = ({ index, setIndex }) => {
                 {errors.pincode && touched.pincode ? errors.pincode : null}
               </span>
             </div>
-            {/* end row */}
           </div>
         </div>
       </form>
@@ -290,7 +288,6 @@ const BasicInfo = ({ index, setIndex }) => {
             className="bg-slate-900 relative inline-flex items-center justify-center px-8 py-2 overflow-hidden text-white rounded-lg cursor-pointer group mr-3"
             onClick={(e) => {
               handleSubmit();
-              // setIndex(2);
             }}
           >
             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#ee6730]  rounded-lg group-hover:w-full group-hover:h-56"></span>

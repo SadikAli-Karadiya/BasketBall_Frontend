@@ -124,7 +124,7 @@ const GameInfo = ({ index, setIndex }) => {
                 {errors.height && touched.height ? errors.height : null}
               </span>
             </div>
-            {/* for last name */}
+            {/* weight */}
             <div className="  ">
               <label htmlFor="weight" className="text-gray-700">
                 Weight (kg)
@@ -144,7 +144,7 @@ const GameInfo = ({ index, setIndex }) => {
                 {errors.weight && touched.weight ? errors.weight : null}
               </span>
             </div>
-            {/* for last name */}
+            {/* for position */}
             <div className="  ">
               <label htmlFor="playerPosition" className="text-gray-700">
                 Player Position
@@ -173,7 +173,7 @@ const GameInfo = ({ index, setIndex }) => {
                   : null}
               </span>
             </div>
-            {/*  */}
+            {/* Jersey Number */}
             <div>
               <label htmlFor="JerseyNumber" className="text-gray-700">
                 Preferred Jersey Number
@@ -195,7 +195,7 @@ const GameInfo = ({ index, setIndex }) => {
                   : null}
               </span>
             </div>
-            {/* for last name */}
+            {/* experience */}
             <div className="">
               <label htmlFor="Experience" className="text-gray-700">
                 Experience (Achievement)
@@ -217,7 +217,7 @@ const GameInfo = ({ index, setIndex }) => {
                   : null}
               </span>
             </div>
-            <div className="">
+            {/* <div className="">
               <label htmlFor="playerPosition" className="text-gray-700">
                 Player Medal
                 <span className="text-red-500 required-dot">*</span>
@@ -243,36 +243,36 @@ const GameInfo = ({ index, setIndex }) => {
                   ? errors.playing_medal
                   : null}
               </span>
-            </div>
+            </div> */}
 
           </div>
         </div>
       </form>
       <div className="w-full flex justify-end mt-5 sm:mt-10 py-5 px-5 ">
-        {location?.state?.isEdit ? (
-          <button
-            type="button"
-            className="bg-[#ee6730] relative inline-flex items-center justify-center px-7 py-2 overflow-hidden text-white rounded-lg cursor-pointer group mr-3"
-            onClick={(e) => {
-              dispatch(setGameInfoForm(values));
-              setIndex(index - 1);
-            }}
-          >
-            <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-slate-900 rounded-lg group-hover:w-full group-hover:h-56"></span>
-            <span className="relative">Cancel</span>
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="bg-[#ee6730] relative inline-flex items-center justify-center px-8 py-2 overflow-hidden text-white rounded-lg cursor-pointer group mr-3"
-            onClick={(e) => {
-              dispatch(setGameInfoForm(values));
-              setIndex(index - 1);
-            }}
-          >
-            <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-slate-900 rounded-lg group-hover:w-full group-hover:h-56"></span>
-            <span className="relative">Back</span>
-          </button>
+        {location?.state?.isEdit && (
+          <>
+            <button
+              type="button"
+              className="bg-[#ee6730] relative inline-flex items-center justify-center px-7 py-2 overflow-hidden text-white rounded-lg cursor-pointer group mr-3"
+              onClick={(e) => {
+                navigate(-1)
+              }}
+            >
+              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-slate-900 rounded-lg group-hover:w-full group-hover:h-56"></span>
+              <span className="relative">Cancel</span>
+            </button>
+            <button
+              type="button"
+              className="bg-[#ee6730] relative inline-flex items-center justify-center px-8 py-2 overflow-hidden text-white rounded-lg cursor-pointer group mr-3"
+              onClick={(e) => {
+                dispatch(setGameInfoForm(values));
+                setIndex(index - 1);
+              }}
+            >
+              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-slate-900 rounded-lg group-hover:w-full group-hover:h-56"></span>
+              <span className="relative">Back</span>
+            </button>
+          </>
         )}
         <button
           type="submit"

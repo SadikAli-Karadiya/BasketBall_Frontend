@@ -80,7 +80,7 @@ export const TournamentInfoSchema = (isEdit)=> Yup.object({
       Object.values(value).some(Boolean)
     ),
 
-    tournament_level: Yup.string().required("Please Enter Tournament Lavel"),
+    tournament_level: Yup.string().required("Please Select Tournament Level"),
 
     referees: Yup.array().of(
       Yup.object().shape({
