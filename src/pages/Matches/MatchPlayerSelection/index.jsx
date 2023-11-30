@@ -2,19 +2,23 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../../../Component/Button";
 import { toast } from "react-toastify";
-import { useMatchPlayersMutation } from "../../../services/team";
+import { useEditMatchPlayersMutation } from "../../../services/team";
 
 export default function MatchPlayerSelection() {
   const location = useLocation();
   const navigate = useNavigate();
-  const MatchData = location.state;
-  const [matchPlayers, { ...matchPlayersData }] = useMatchPlayersMutation();
+  const MatchData = location?.state;
+  const [editMatchPlayers, { ...matchPlayersData }] = useEditMatchPlayersMutation();
   const team1Color = "text-orange-500";
   const team2Color = "text-blue-600";
   const [captain, setCaptain] = useState(MatchData?.captain?.players.id);
   const [selectedPlayers, setSelectedPlayers] = useState([
     ...MatchData?.selectedPlayer,
   ]);
+  
+  if(location?.state == undefined || location?.state == null || !location?.state?.match == undefined || !location?.state?.match == null){
+    return navigate('/page-not-found'); 
+  }
 
 
   const handleSelect = (playerId) => {
@@ -35,7 +39,7 @@ export default function MatchPlayerSelection() {
     }
     if (matchPlayersData.isSuccess) {
       if (matchPlayersData?.data?.success) {
-        toast.success("Team Registration Successful");
+        toast.success(matchPlayersData.data.message);
         navigate(`/match-details/${MatchData?.match?.id}`);
       }
     }
@@ -57,6 +61,10 @@ export default function MatchPlayerSelection() {
       toast.error("Please Select Player");
       return;
     }
+    if(finalPlayer.length < 5){
+      toast.error("Minimum 5 players must be selected");
+      return
+    }
     if (!captain) {
       return toast.error("Please Select Captain");
     }
@@ -64,7 +72,7 @@ export default function MatchPlayerSelection() {
       return toast.error("Captain must be selected");
     }
 
-    matchPlayers({ body: finalPlayer, team_id: MatchData?.team.id });
+    editMatchPlayers({ body: finalPlayer, team_id: MatchData?.team.id, match_id: MatchData?.match?.id });
   }
 
   return (
@@ -72,17 +80,16 @@ export default function MatchPlayerSelection() {
       <div className="flex flex-row justify-center items-center">
         <h1 className=" text-2xl md:text-4xl font-bold ">
           <span className={`mr-3 ${team1Color}`}>
-            {MatchData?.match?.team_1.team_name}
+            {MatchData?.match?.team_1?.team_name}
           </span>
           <span className="italic opacity-50 text-gray-500">Vs</span>
           <span className={`ml-3 ${team2Color}`}>
-            {MatchData?.match?.team_2.team_name}
+            {MatchData?.match?.team_2?.team_name}
           </span>
         </h1>
       </div>
 
       <div className=" md:py-8 font-semibold ">
-        {/* <h1>This is</h1> */}
         <div className="sm:px-8 py-8 text-center ">
           <div className="w-full  overflow-x-scroll shadow-2xl rounded-lg   border-gray-200">
             <div
