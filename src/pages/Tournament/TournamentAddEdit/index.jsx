@@ -246,8 +246,6 @@ function TournamentAddEdit() {
       formdata.append('referees', JSON.stringify(data.referees))
       formdata.append('sponsors', JSON.stringify(data.sponsors))
 
-      console.log(data.sponsors)
-      console.log(data.referees)
       for (let i = 0; i < data.sponsors.length; i++) {
         if(data.sponsors[i].name != '' && data.sponsors[i].logo != ''){
           formdata.append(`sponsors_logo${i}`, data.sponsors[i].logo)

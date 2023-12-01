@@ -7,8 +7,6 @@ export default function TeamPlayers({ data }) {
   const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-  console.log(data)
-
   function handleNavigate(isTeam_1) {
     navigate("/match/playerselection", {
       state: {

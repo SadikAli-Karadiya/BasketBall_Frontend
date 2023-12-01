@@ -162,6 +162,7 @@ function Schedule({isOrganizer, refetchData}) {
                     schedule.length > 0
                     ?
                         schedule.map((item, i)=>{
+                            console.log(item)
                         return <div key={i} className={`${i != 0 ? 'mt-10': ''}`}>
                                 <h3 className='mb-2 text-xs sm:text-base font-medium text-gray-600'>{item.round_name}</h3>
                                 <div key={i} className="table-container relative overflow-x-auto shadow-md rounded-md sm:rounded-lg">
@@ -188,6 +189,9 @@ function Schedule({isOrganizer, refetchData}) {
                                                 </th>
                                                 <th scope="col" className="px-6 py-3 whitespace-nowrap">
                                                     Address
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 whitespace-nowrap">
+                                                    Won By
                                                 </th>
                                                 {
                                                     isOrganizer
@@ -261,6 +265,24 @@ function Schedule({isOrganizer, refetchData}) {
                                                                     <input type="text" className='w-full bg-transparent border border-white rounded-sm px-1 text-white' name="match_address" id="" value={matchAddress} onChange={handleAddress} />
                                                                 :
                                                                     match.address
+                                                            }
+                                                        </td>
+                                                        <td className={`px-6 py-4 whitespace-nowrap font-semibold ${match.status == 3 && match.won_by_team_id != null ? 'text-green-600' : ''}`}>
+                                                            {
+                                                                match.status == 3
+                                                                ?
+                                                                    match.won_by_team_id == match.team_1_id
+                                                                    ?
+                                                                        match.team_1.team_name
+                                                                    :
+                                                                        match.won_by_team_id == match.team_2_id
+                                                                        ?
+                                                                            match.team_2.team_name
+                                                                        :
+                                                                        'Draw'
+                                                                :
+                                                                    '--'
+
                                                             }
                                                         </td>
                                                         {
