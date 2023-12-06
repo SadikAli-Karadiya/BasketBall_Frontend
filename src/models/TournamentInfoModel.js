@@ -124,6 +124,17 @@ export const TournamentInfoSchema = (isEdit)=> Yup.object({
               return false; // mobile is required when referee name is provided
             }
             return true;
+          }),
+          type: Yup.string()
+          .test('is-type-required', 'Select referee type', function (value) {
+            const { name } = this.parent;
+            if (!name && !value) {
+              return true; // both fields are optional
+            }
+            if (name && !value) {
+              return false; // referee type is required when referee name is provided
+            }
+            return true;
           })
       })
     ),
