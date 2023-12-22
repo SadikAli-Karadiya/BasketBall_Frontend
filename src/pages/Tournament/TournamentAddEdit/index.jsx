@@ -642,7 +642,7 @@ function TournamentAddEdit() {
                 <div className="flex flex-col sm:flex-row sm:space-x-5 w-full ">
                   <div className="w-full">
                     <label className="">Winner Prize</label>
-                    <input
+                    <input  
                       className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 mt-2 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
                       placeholder="Enter Runner Price"
                       type="text"

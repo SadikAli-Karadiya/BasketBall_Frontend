@@ -156,7 +156,7 @@ function AsideMenuMain() {
               </NavLink>
             </li>
             <li className="nav-item md:hidden" onClick={() => setOpen(!open)}>
-              <NavLink className={({ isActive }) => (isActive ? "active" : 'none')} to={"/tournaments"} >
+              <NavLink className={({ isActive }) => (isActive ? "active" : 'none')} to={"/tournament"} >
                 <h1 className="relative text-white text-base md:text-base lg:text-base xl:text-lg my-[16px] lg:my-0">
                   Tournament
                 </h1>

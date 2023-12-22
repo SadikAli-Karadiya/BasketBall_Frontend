@@ -100,7 +100,7 @@ function TeamRegister() {
                   Tournament registration is closed. Thank you for your
                   interest.
 
-                  <span className="mt-10 text-base" onClick={()=> navigate(-1)}>{'<'} Go back</span>
+                  <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
                 </div>
               ) : tournamentDetails?.status == 3 ? (
               
@@ -108,14 +108,14 @@ function TeamRegister() {
                   The tournament has ended. Congratulations to the winners and
                   thank you to all who participated.
 
-                  <span className="mt-10 text-base" onClick={()=> navigate(-1)}>{'<'} Go back</span>
+                  <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
                 </div>
               ) : (
                 <div className="flex flex-col">
                   Tournament registration will be opening soon, please stay
                   tuned for further announcements.
 
-                  <span className="mt-10 text-base" onClick={()=> navigate(-1)}>{'<'} Go back</span>
+                  <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
                 </div>
               ))}
           </div>

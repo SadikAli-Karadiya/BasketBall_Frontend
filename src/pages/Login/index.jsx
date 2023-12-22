@@ -64,8 +64,8 @@ function Login() {
           toast.error(res.error.data.message);
         }
         else if (res.data.success) {
-          navigate("/"); 
           dispatch(authentication(res.data.token, res.data.user));
+          navigate("/"); 
           toast.success(res.data.message);
         }
       },

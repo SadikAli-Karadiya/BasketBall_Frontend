@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import { useUpdateProfileMutation } from "../../services/user"
+import { setUser } from "../../redux/slices/UserSlice";
 
 const profileSchema = Yup.object({
   full_name: Yup.string().min(2).max(25).matches(/^[a-zA-Z ]+$/, "Please enter only characters").required("Please enter full name"),
@@ -17,6 +18,7 @@ const profileSchema = Yup.object({
 });
 
 function VisitorProfile() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
   
@@ -56,6 +58,7 @@ function VisitorProfile() {
             toast.error(response.error.data.message)
           }
           else if(response.data.success){
+            dispatch(setUser(response.data.user))
             navigate('/');
             toast.success(response.data.message);
           }
