@@ -17,8 +17,8 @@ export default function Role() {
     {
       title: "Player",
       isSelected: false,
-      path: "/player/register",
-      icon: "/icons/player_icon.png",
+      path: "/player/add-edit",
+      icon: "/icons/playing_icon.png",
     },
     {
       title: "Team Owner/Manager",
