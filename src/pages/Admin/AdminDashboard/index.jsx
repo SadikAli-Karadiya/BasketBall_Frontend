@@ -9,11 +9,6 @@ export default function AdminDashboard() {
 
   return (
     <div className="px-1 md:px-12 py-4 ">
-      {/* <div className="flex">
-        <div className="w-1/2 rounded-xl pt-5 bg-blue-100">
-          <img className="rounded-xl" src={"CBL_Images/dash.jpg"}></img>
-        </div>
-      </div> */}
       <div className="py-4 px-3">
         <h1 className="text-xl md:text-3xl  font-semibold capitalize">Hello 👋, {user.name}</h1>
         <p className="lg:py-1 lg:px-2 text-base text-gray-700">

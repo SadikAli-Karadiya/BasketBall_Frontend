@@ -170,7 +170,7 @@ function TournamentDetails() {
                 } h-full cursor-pointer`}
                 onClick={() => setCurrentTab(8)}
               >
-                Admin*
+                Settings
               </h1>
             ) : null}
           </div>

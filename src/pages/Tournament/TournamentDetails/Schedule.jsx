@@ -317,28 +317,32 @@ function Schedule({isOrganizer, refetchData}) {
                                                                     }
                                                                     <td className="flex items-center px-6 py-4 whitespace-nowrap space-x-3">
                                                                         {
-                                                                            isEdit && editMatchId == match.id
+                                                                            match.status == 1
                                                                             ?
-                                                                                <>
-                                                                                    <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={()=>handleSave(match.id)}>{
-                                                                                        updatingMatch.isLoading
-                                                                                        ?
-                                                                                            'Loading..'
-                                                                                        :
-                                                                                            'Save'
-                                                                                    }</button>
-                                                                                    <button className="font-medium text-red-600 dark:text-red-500 hover:underline" onClick={handleCancel}>Cancel</button>
-                                                                                </>
-                                                                            
+                                                                                isEdit && editMatchId == match.id
+                                                                                ?
+                                                                                    <>
+                                                                                        <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={()=>handleSave(match.id)}>{
+                                                                                            updatingMatch.isLoading
+                                                                                            ?
+                                                                                                'Loading..'
+                                                                                            :
+                                                                                                'Save'
+                                                                                        }</button>
+                                                                                        <button className="font-medium text-red-600 dark:text-red-500 hover:underline" onClick={handleCancel}>Cancel</button>
+                                                                                    </>
+                                                                                
+                                                                                :
+                                                                                    <>
+                                                                                        <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={()=>handleEdit(match.id, match.start_date, match.start_time, match.address)}>Edit</button>
+                                                                                        <button 
+                                                                                        disabled={deletingMatch.isLoading}
+                                                                                        className={`${deletingMatch.isLoading ? 'opacity-60' : ''} font-medium text-red-600 dark:text-red-500 hover:underline`}
+                                                                                        onClick={()=>handleMatchDelete(match.id)}
+                                                                                        >Delete</button>
+                                                                                    </>
                                                                             :
-                                                                                <>
-                                                                                    <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={()=>handleEdit(match.id, match.start_date, match.start_time, match.address)}>Edit</button>
-                                                                                    <button 
-                                                                                    disabled={deletingMatch.isLoading}
-                                                                                    className={`${deletingMatch.isLoading ? 'opacity-60' : ''} font-medium text-red-600 dark:text-red-500 hover:underline`}
-                                                                                    onClick={()=>handleMatchDelete(match.id)}
-                                                                                    >Delete</button>
-                                                                                </>
+                                                                                '--'
                                                                         }
                                                                     </td>
                                                                 </>

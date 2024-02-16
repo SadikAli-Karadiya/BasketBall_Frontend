@@ -51,7 +51,7 @@ export default function TeamPlayers({ data }) {
             {data?.data?.match_data?.team_1_players.map((player, index) => {
               return (
                 <>
-                  <Link to={`/player/${player?.player_id}`}>
+                  <Link to={`/player/profile-detail/${player?.player_id}`}>
                     <div className="text-center w-full  grid grid-cols-4 shadow-2xl p-2 rounded  mt-3 bg-black text-white text-sm md:text-lg font-semibold">
                       <h1 className="">{player?.players?.jersey_no} </h1>
                       <h1 className="">{player?.players?.first_name}</h1>
@@ -71,8 +71,6 @@ export default function TeamPlayers({ data }) {
             <div className="flex justify-end">
               <div>
                 <Button
-                  // margin={false}
-                  // isDisabled={startTourLoading.isLoading}
                   text={"Edit Players"}
                   onClick={(e) => handleNavigate(true)}
                 />
@@ -100,7 +98,7 @@ export default function TeamPlayers({ data }) {
             {data?.data?.match_data?.team_2_players.map((player, index) => {
               return (
                 <>
-                  <Link to={`/player/${player?.player_id}`}>
+                  <Link to={`/player/profile-detail/${player?.player_id}`}>
                     <div className="text-center shadow-2xl p-2 rounded w-full overflow-x-scroll grid grid-cols-4   mt-3 bg-black text-white text-sm md:text-lg font-semibold">
                       <h1 className="">{player?.players?.jersey_no} </h1>
                       <h1 className="">{player?.players?.first_name}</h1>
@@ -120,8 +118,6 @@ export default function TeamPlayers({ data }) {
             <div className="flex justify-end">
               <div>
                 <Button
-                  // margin={false}
-                  // isDisabled={startTourLoading.isLoading}
                   text={"Edit Players"}
                   onClick={(e) => handleNavigate(false)}
                 />

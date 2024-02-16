@@ -36,44 +36,7 @@ function AdminSidebar() {
                   )}
                 </div>
                 <div className="mt-10 flex items-center relative">
-                  {show ? (
-                    <div arial-label="search" className="relative w-full">
-                      <div className="absolute p-2">
-                        <svg
-                          width={20}
-                          height={20}
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M9.1665 1.66667C13.3065 1.66667 16.6665 5.02667 16.6665 9.16667C16.6665 13.3067 13.3065 16.6667 9.1665 16.6667C5.0265 16.6667 1.6665 13.3067 1.6665 9.16667C1.6665 5.02667 5.0265 1.66667 9.1665 1.66667ZM9.1665 15C12.389 15 14.9998 12.3892 14.9998 9.16667C14.9998 5.94333 12.389 3.33333 9.1665 3.33333C5.94317 3.33333 3.33317 5.94333 3.33317 9.16667C3.33317 12.3892 5.94317 15 9.1665 15ZM16.2373 15.0592L18.5948 17.4158L17.4157 18.595L15.059 16.2375L16.2373 15.0592Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                      <input
-                        type="seach"
-                        className="w-full py-2 pl-10 bg-gray-800 rounded text-base leading-none text-white placeholder-white"
-                        placeholder="Search"
-                      />
-                    </div>
-                  ) : (
-                    <div>
-                      <svg
-                        width={20}
-                        height={20}
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w 3.org/2000/svg"
-                      >
-                        <path
-                          d="M9.1665 1.66667C13.3065 1.66667 16.6665 5.02667 16.6665 9.16667C16.6665 13.3067 13.3065 16.6667 9.1665 16.6667C5.0265 16.6667 1.6665 13.3067 1.6665 9.16667C1.6665 5.02667 5.0265 1.66667 9.1665 1.66667ZM9.1665 15C12.389 15 14.9998 12.3892 14.9998 9.16667C14.9998 5.94333 12.389 3.33333 9.1665 3.33333C5.94317 3.33333 3.33317 5.94333 3.33317 9.16667C3.33317 12.3892 5.94317 15 9.1665 15ZM16.2373 15.0592L18.5948 17.4158L17.4157 18.595L15.059 16.2375L16.2373 15.0592Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                  )}
+                  <hr className="absolute w-full" />
                   <div className="-mt-5 z-20" onClick={() => setShow(!show)}>
                     {show ? (
                       <button
@@ -155,7 +118,7 @@ function AdminSidebar() {
                           show
                           ?
                             <span>
-                              Tournaments Request
+                              Tournts. Requests
                             </span>
                           :
                           null
