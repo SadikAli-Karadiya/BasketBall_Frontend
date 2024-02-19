@@ -221,7 +221,7 @@ function TournamentAddEdit() {
       for (const key in data.age_cutoff) {
         if (data.age_cutoff[key] == true) {
           age_categories.push(
-            `${key.split('_')[0]} ${key.split('_')[1]}`
+            key.split('_')[1] == undefined ? `${key.split('_')[0]}` : `${key.split('_')[0]} ${key.split('_')[1]}`
           );
         }
       }
@@ -514,7 +514,7 @@ function TournamentAddEdit() {
                           onBlur={handleBlur}
                           checked={values.age_cutoff.under_16}
                           className="cursor-pointer " />
-                        <label htmlFor="Under 16" className="text-sm">under 16</label>
+                        <label htmlFor="Under 16" className="text-sm">Under 16</label>
                       </div>
                       <div className="flex md:flex-col xl:flex-row items-center space-x-3">
                         <input type="checkbox"

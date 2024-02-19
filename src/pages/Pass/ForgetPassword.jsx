@@ -68,7 +68,7 @@ function ForgetPassword() {
                         <label htmlFor="Email" className='font-semibold text-base'>Email</label>
                         <input type="text"
                             value={values.phone}
-                            placeholder='Enter your email number'
+                            placeholder='Enter your email'
                             autoComplete='off'
                             name='email'
                             id='email'
