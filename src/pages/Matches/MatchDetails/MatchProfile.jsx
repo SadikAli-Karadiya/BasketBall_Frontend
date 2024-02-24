@@ -69,7 +69,7 @@ export default function MatchProfile({ data }) {
             </h1>
           </div>
         )}
-        {data?.data?.match_data?.data?.status != 1 && (
+        {data?.data?.match_data?.data?.status == 2 && (
           <div className="text-white order-2  xss:text-xs xs:text-2xl md:hidden">
             <h1 className="bg-white flex justify-center items-center  font-semibold  text-black xxs:w-7 xxs:h-7 xs:w-10 xs:h-10   rounded-full ">
               Q{data?.data?.match_data?.all_quarters?.length}
@@ -78,11 +78,17 @@ export default function MatchProfile({ data }) {
         )}
         {data?.data?.match_data?.data?.status != 1 && (
           <div className="space-y-8 xs:space-x-4 mt-3 mx-4  order-4 lg:order-2">
-            <div className="hidden  text-center md:flex justify-center">
-              <h1 className="bg-white flex justify-center items-center  font-semibold text-2xl text-black w-10 h-10   rounded-full ">
-                Q{data?.data?.match_data?.all_quarters?.length}
-              </h1>
-            </div>
+            {
+              data?.data?.match_data?.data?.status == 2
+              ?
+                <div className="hidden  text-center md:flex justify-center">
+                  <h1 className="bg-white flex justify-center items-center  font-semibold text-2xl text-black w-10 h-10   rounded-full ">
+                    Q{data?.data?.match_data?.all_quarters?.length}
+                  </h1>
+                </div>
+              :
+                null
+            }
             <div className="grid  grid-cols-3 font-bold  text-xl md:text-3xl text-white">
               <div className=" bg-orange-600 shadow-xl  rounded-l-xl rounded-bl-none px-10 md:px-12 py-2 ">
                 {data?.data?.match_data?.live_quarter?.team_1_points}
