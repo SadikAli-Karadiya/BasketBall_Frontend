@@ -65,8 +65,8 @@ function TeamRegister() {
     onSubmit: (data) => {
       const newData = {
         ...data,
-        tournament_category: selectedcategory,
-        age_cutoff: selectedage_cutoff,
+        tournament_category: [selectedcategory],
+        age_cutoff: [selectedage_cutoff],
         tournament_id: tournamentDetails.id,
         team_id: selectedTeam,
       };
