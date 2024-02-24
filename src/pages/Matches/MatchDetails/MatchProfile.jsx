@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 import { CgMediaLive } from "react-icons/cg";
 import { VscRefresh } from "react-icons/vsc";
+import _ from "lodash";
 
 export default function MatchProfile({ data }) {
 
@@ -71,7 +72,7 @@ export default function MatchProfile({ data }) {
         {data?.data?.match_data?.data?.status != 1 && (
           <div className="text-white order-2  xss:text-xs xs:text-2xl md:hidden">
             <h1 className="bg-white flex justify-center items-center  font-semibold  text-black xxs:w-7 xxs:h-7 xs:w-10 xs:h-10   rounded-full ">
-              {data?.data?.match_data?.all_quarters?.length}
+              Q{data?.data?.match_data?.all_quarters?.length}
             </h1>
           </div>
         )}
@@ -79,7 +80,7 @@ export default function MatchProfile({ data }) {
           <div className="space-y-8 xs:space-x-4 mt-3 mx-4  order-4 lg:order-2">
             <div className="hidden  text-center md:flex justify-center">
               <h1 className="bg-white flex justify-center items-center  font-semibold text-2xl text-black w-10 h-10   rounded-full ">
-                {data?.data?.match_data?.all_quarters?.length}
+                Q{data?.data?.match_data?.all_quarters?.length}
               </h1>
             </div>
             <div className="grid  grid-cols-3 font-bold  text-xl md:text-3xl text-white">
@@ -93,21 +94,21 @@ export default function MatchProfile({ data }) {
                 {data?.data?.match_data?.live_quarter?.team_2_points}
               </div>
               <div className="col-span-3 bg-black text-white py-1 shadow-2xl flex justify-around  w-full mx-auto mb-2 font-semibold rounded-b-xl text-lg items-center space-x-3">
-                <span>
-                  {data?.data?.match_data?.all_quarters?.filter(
-                    (m) =>
-                      m?.won_by_team_id ===
-                      data?.data?.match_data?.data?.team_1_id
-                  )?.length ?? 0}
-                </span>
-                <span>-</span>
-                <span>
-                  {data?.data?.match_data?.all_quarters?.filter(
-                    (m) =>
-                      m?.won_by_team_id ===
-                      data?.data?.match_data?.data?.team_2_id
-                  )?.length ?? 0}
-                </span>
+                <div className='flex space-x-1 ml-3'>
+                  {
+                      _.times(5, (i)=>(
+                          <div key={i} className={`md:w-3 md:h-3 w-2 h-2 bg-green-500 rounded-full ${i+1 <= data?.data?.match_data?.team_1_total_won ? 'bg-green-500' : 'bg-gray-500'}`}></div>
+                      ))
+                  }
+                </div>
+                <div className="text-gray-300">.</div>
+                <div className='flex space-x-1 mr-3'>
+                  {
+                      _.times(5, (i)=>(
+                          <div key={i} className={`md:w-3 md:h-3 w-2 h-2 bg-green-500 rounded-full ${i+1 <= data?.data?.match_data?.team_2_total_won ? 'bg-green-500' : 'bg-gray-500'}`}></div>
+                      ))
+                  }
+                </div>
               </div>
             </div>
             {/* score Detail */}
