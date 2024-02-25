@@ -30,14 +30,12 @@ function AboutUs() {
         <div className="">
           <AboutUsCard key={1} name={1} />
         </div>
-        <div className="pb-32">
+        <div className="pb-32 mt-10">
           <div className="text-center">
             <h1 className="text-3xl text-center ">CBL Features</h1>
             <p className="w-full md:w-2/3 mx-auto p-2 text-gray-800 italic">
-              <span className="text-2xl text-black">"</span> Unleash the full
-              potential of your basketball passion with our all-in-one web
-              portal, featuring live scores, tournament updates, stats, and more
-              <span className="text-2xl text-black">"</span>
+              Unleash the full potential of your basketball passion with our all-in-one web
+              portal, featuring live scores, tournament updates, stats, and more.
             </p>
           </div>
           <div className="flex flex-wrap justify-center lg:grid-cols-4 gap-5 mt-10">
