@@ -18,8 +18,10 @@ function TeamProfile() {
   }
   return (
     <section className="min-h-screen-fit">
-      <div className="mx-auto px-10 py-12 sm:px-20 sm:py-12 md:px-20 md:py-16 lg:px-24 xl:px-28 2xl:px-32">
-        <Heading text="Your Teams" />
+      <div className="mx-auto px-4 sm:px-20  md:px-20 lg:px-24 xl:px-28 2xl:px-32">
+        <div className="xs:py-10 py-10 xl:py-14">
+            <h1 className="xs:text-3xl sm:text-3xl md:text-4xl text-center font-bold  italic uppercase text-[#ee6730] ">Your Teams</h1>
+        </div>
         {teamData?.data?.data?.length > 0 ? (
           teamData?.data?.data?.map((team, i) => {
             return <TeamCard key={i} teamDetails={team} isPublic={true} />;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { FiChevronRight } from "react-icons/fi";
@@ -12,6 +12,27 @@ import { useDispatch, useSelector } from "react-redux";
 function DropDownmenu({setOpen, isMenu, setIsMenu}) {
   const dispatch = useDispatch();
   const { user } = useSelector((state)=> state.user)
+
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsMenu(false);
+        setOpen(false);
+      }
+    };
+
+    if (isMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenu, setIsMenu]);
 
   return (
     <>
@@ -30,6 +51,7 @@ function DropDownmenu({setOpen, isMenu, setIsMenu}) {
       </div>
 
       <div
+        ref={dropdownRef}
         className={`${isMenu
             ? "active top-[80px] lg:top-[90px] 2xl:top-[78px] "
             : " inactive"

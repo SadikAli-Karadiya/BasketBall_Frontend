@@ -77,7 +77,7 @@ function TournamentsOfOrganizer() {
 
     return (
         <section className="min-h-screen-fit">
-            <div className='mx-auto px-10  sm:px-20  md:px-20 lg:px-24 xl:px-28 2xl:px-32'>
+            <div className='mx-auto px-10  sm:px-20  md:px-20 lg:px-24 xl:px-28 2xl:px-32 pb-10'>
                 <div className="xs:py-10 py-10 xl:py-14">
                     <h1 className="xs:text-3xl sm:text-3xl md:text-4xl text-center font-bold  italic uppercase text-[#ee6730] ">Your Tournaments</h1>
                 </div>
@@ -85,30 +85,6 @@ function TournamentsOfOrganizer() {
                     pendingOrRejectedTournaments.length > 0
                         ?
                         <div className="flex justify-center items-center mb-14">
-                            {/* <div className='w-full flex flex-col justify-center items-center'>
-                                <h3 className='text-gray-600 font-medium'>Approval Pending</h3>
-                                <div className='w-full flex flex-wrap flex-col justify-center items-center py-4'>
-                                    {
-                                        approvalPendingTournaments.map((tournament, index) =>{
-                                            return (
-                                                <div 
-                                                key={index} 
-                                                className="w-52 h-20 flex items-center bg-gray-200 rounded-lg p-2 shadow-md cursor-pointer hover:opacity-80"
-                                                onClick={()=> navigate(`/tournament/${tournament.id}`)}
-                                                >
-                                                    <div className='w-16 h-16 border border-gray-400 rounded-full overflow-hidden'>
-                                                        <img src={tournament.logo} className="w-full h-full object-cover" alt="" />
-                                                    </div>
-                                                    <div className='text-center flex-1'>
-                                                        <p className={`${tournament.tournament_name.length > 28 ? 'text-base' : 'text-lg'} font-medium text-gray-600`}>{tournament.tournament_name}</p>
-                                                    </div>
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            </div> */}
-
                             <div className="table-container w-full flex lg:justify-center overflow-x-auto">
                                 <table className="whitespace-nowrap w-full lg:w-3/5 mt-2 rounded-md overflow-hidden text-xs xs:text-sm">
                                     <thead className="bg-gray-200">
