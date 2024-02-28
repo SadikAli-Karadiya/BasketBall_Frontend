@@ -70,6 +70,7 @@ function TeamRegister() {
         tournament_id: tournamentDetails.id,
         team_id: selectedTeam,
       };
+      
       teamtoTournament(newData).then();
     },
   });
@@ -93,32 +94,38 @@ function TeamRegister() {
               {tournamentDetails?.tournament_name}
             </p>
           </div>
-          <div className="text-2xl font-semibold text-center px-3 py-16 text-gray-800">
-            {!tournamentDetails?.is_registration_open &&
-              (tournamentDetails?.status == 2 ? (
-                <div className="flex flex-col">
-                  Tournament registration is closed. Thank you for your
-                  interest.
+          {
+            !tournamentDetails?.is_registration_open
+            ?
+              <div className="text-2xl font-semibold text-center px-3 py-16 text-gray-800">
+                {
+                  (tournamentDetails?.status == 2 ? (
+                    <div className="flex flex-col">
+                      Tournament registration is closed. Thank you for your
+                      interest.
 
-                  <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
-                </div>
-              ) : tournamentDetails?.status == 3 ? (
-              
-                <div className="flex flex-col">
-                  The tournament has ended. Congratulations to the winners and
-                  thank you to all who participated.
+                      <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
+                    </div>
+                  ) : tournamentDetails?.status == 3 ? (
+                  
+                    <div className="flex flex-col">
+                      The tournament has ended. Congratulations to the winners and
+                      thank you to all who participated.
 
-                  <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
-                </div>
-              ) : (
-                <div className="flex flex-col">
-                  Tournament registration will be opening soon, please stay
-                  tuned for further announcements.
+                      <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col">
+                      Tournament registration will be opening soon, please stay
+                      tuned for further announcements.
 
-                  <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
-                </div>
-              ))}
-          </div>
+                      <span className="mt-10 text-base cursor-pointer" onClick={()=> navigate(-1)}>{'<'} Go back</span>
+                    </div>
+                  ))}
+              </div>
+            :
+             null
+          }
           {tournamentDetails?.is_registration_open && (
             <>
               <div className="py-5 w-full">

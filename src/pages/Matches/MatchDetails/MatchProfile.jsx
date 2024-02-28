@@ -69,13 +69,17 @@ export default function MatchProfile({ data }) {
             </h1>
           </div>
         )}
-        {data?.data?.match_data?.data?.status == 2 && (
-          <div className="text-white order-2  xss:text-xs xs:text-2xl md:hidden">
-            <h1 className="bg-white flex justify-center items-center  font-semibold  text-black xxs:w-7 xxs:h-7 xs:w-10 xs:h-10   rounded-full ">
-              Q{data?.data?.match_data?.all_quarters?.length}
-            </h1>
-          </div>
-        )}
+        {
+          data?.data?.match_data?.data?.status == 2         
+          ?
+            <div className="text-white order-2  xss:text-xs xs:text-2xl md:hidden">
+              <h1 className="bg-white flex justify-center items-center  font-semibold  text-black xxs:w-7 xxs:h-7 xs:w-10 xs:h-10   rounded-full ">
+                Q{data?.data?.match_data?.all_quarters?.length}
+              </h1>
+            </div>
+          :
+            null
+        }
         {data?.data?.match_data?.data?.status != 1 && (
           <div className="space-y-8 xs:space-x-4 mt-3 mx-4  order-4 lg:order-2">
             {
@@ -99,7 +103,7 @@ export default function MatchProfile({ data }) {
               <div className=" bg-blue-500 shadow-xl rounded-b-none rounded-r-xl rounded-br-none  px-8 py-2 text-center">
                 {data?.data?.match_data?.live_quarter?.team_2_points}
               </div>
-              <div className="col-span-3 bg-black text-white py-1 shadow-2xl flex justify-around  w-full mx-auto mb-2 font-semibold rounded-b-xl text-lg items-center space-x-3">
+              <div className="col-span-3 bg-black text-white py-1 shadow-2xl flex justify-between  w-full mb-2 font-semibold rounded-b-xl text-lg items-center ">
                 <div className='flex space-x-1 ml-3'>
                   {
                       _.times(5, (i)=>(

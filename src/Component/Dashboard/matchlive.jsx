@@ -71,7 +71,7 @@ function MatchLive({ slides }) {
                         item?.status == 1
                           ?
                           <div className='bg-red-600 flex items-center pr-2 py-[2px] lg:py-[3px] px-2 rounded-md text-white  '>
-                            <p className='font-semibold text-[10px] sm:text-[12px] lg:text-sm'>Scheduled</p>
+                            <p className='font-semibold text-[10px] sm:text-[12px] lg:text-sm'>To be annouced</p>
                           </div>
                           :
                           item?.status == 2
@@ -101,10 +101,9 @@ function MatchLive({ slides }) {
                               <p className='text-white text-[15px]'>
                                 {
                                   item?.start_date ?
-
                                     moment(item?.start_date).format('DD/MM/YYYY')
-                                    :
-                                    "Comming Soon"
+                                  :
+                                    null
                                 }
                               </p>
                               <p className='text-black font-bold text-[15px]'>

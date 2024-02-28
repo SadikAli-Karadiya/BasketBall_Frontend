@@ -31,7 +31,7 @@ const About = ({isOrganizer, tournamentDetails}) => {
             </div>
             <div className="flex-col flex w-full">
               <label className="mb-2 text-gray-400 text-xs xs:text-sm md:text-base">
-                City
+                Address
               </label>
               <div className="border-2 border-orange-100 px-2 py-2 rounded-lg bg-white capitalize font-medium text-xs xs:text-sm md:text-base">
                 <p>

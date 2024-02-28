@@ -296,7 +296,7 @@ function Admin({tournamentDetails, refetchData, teams}) {
                 }) 
               }}
               disabled={!tournamentDetails.is_details_editable}
-              className="bg-[#ee6730] relative inline-flex items-center justify-center w-full px-4 py-2 xs:py-2.5 sm:px-8 sm:py-2.5 overflow-hidden text-white rounded-lg cursor-pointer group mr-3"
+              className={`bg-[#ee6730] relative inline-flex items-center justify-center w-full px-4 py-2 xs:py-2.5 sm:px-8 sm:py-2.5 overflow-hidden text-white rounded-lg cursor-pointer group mr-3 ${!tournamentDetails.is_details_editable ? 'opacity-60' : ''}`}
             >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-slate-900 rounded-lg group-hover:w-full group-hover:h-56"></span>
               <span className="relative text-xs xs:text-sm md:text-base">Edit Tournament</span>

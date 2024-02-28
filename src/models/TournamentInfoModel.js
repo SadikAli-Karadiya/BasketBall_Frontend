@@ -35,15 +35,15 @@ export const TournamentInfoSchema = (isEdit)=> Yup.object({
         return value && value.size <= 2097152
       }),
 
-    city_name: Yup.string()
+    address: Yup.string()
       .test('trim', 'Must not contain leading or trailing spaces', (value) => {
         if (value) {
           return value.trim() === value; 
         }
         return true;
       })
-      .matches(/^[a-zA-Z]+$/, "Please Enter Only Characters")
-      .required("Please Enter City Name"),
+      .matches(/^[a-zA-Z0-9\s.,#-]+$/, "No special characters are allowed except .,#-")
+      .required("Please Enter Address"),
 
     tournament_category: Yup.object().shape({
       boys: Yup.boolean(),

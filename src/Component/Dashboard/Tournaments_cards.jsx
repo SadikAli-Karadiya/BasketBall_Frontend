@@ -31,15 +31,27 @@ function Tournaments_cards({ tournament }) {
                 </div>
                 {
                     tournament.status == 2
-                        ?
-                        <div className='flex items-end justify-start  w-full absolute top-0 left-0 '>
-                            <p className='uppercase font-semibold bg-red-600 rounded-tl-lg text-white text-[10px] md:text-[12px]  flex items-center px-1'>
+                    ?
+                        <div className='flex items-end justify-start w-full absolute top-0 left-0 '>
+                            <p className='uppercase font-semibold text-green-600 rounded-tl-lg  text-[10px] md:text-[12px]  flex items-center px-1 pt-1'>
                                 <RxDotFilled className='md:text-base animate-ping' />
-                                Live
+                                Ongoing
                             </p>
                         </div>
+                    :
+                        tournament.status == 1 
+                        ?
+                            <div className='flex items-end justify-start w-full absolute top-0 left-0 '>
+                                <p className='uppercase font-semibold text-red-600 rounded-tl-lg  text-[10px] md:text-[12px]  flex items-center px-2 pt-1'>
+                                    Upcoming
+                                </p>
+                            </div> 
                         :
-                        null
+                            <div className='flex items-end justify-start w-full absolute top-0 left-0 '>
+                                <p className='uppercase font-semibold text-gray-400 rounded-tl-lg  text-[10px] md:text-[12px]  flex items-center px-2 pt-1'>
+                                    Ended
+                                </p>
+                            </div>
                 }
                 <div className='absolute left-6 top-4 space-y-3 w-1/2 h-1/3 flex justify-start items-center  '>
                     <h1 className={`${tournament?.tournament_name?.length > 8 ? "xs:text-3xl xl:text-2xl uppercase" : "text-4xl uppercase"} uppercase font-bold `}>
@@ -60,8 +72,8 @@ function Tournaments_cards({ tournament }) {
                             </p>
                         </div>
                     </div>
-                    <div className='bg-[#ee6730] mt-2 rounded-md text-center text-sm py-1 text-white mx-8'>
-                        Ahmedabad
+                    <div className='bg-[#ee6730] mt-2 rounded-md text-center text-sm py-1 text-white mx-8 line-clamp-1 text-ellipsis'>
+                        {tournament.address} 
                     </div>
                 </div>
             </div>

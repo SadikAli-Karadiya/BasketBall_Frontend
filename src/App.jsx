@@ -5,9 +5,9 @@ import { store } from "./redux/store";
 import ErrorBoundry from './Component/ErrorBoundry'
 
 function App() {
-  if (process.env.NODE_ENV == "development") {
-    document.getElementById("root").classList.add("debug-screens");
-  }
+  // if (process.env.NODE_ENV == "development") {
+  //   document.getElementById("root").classList.add("debug-screens");
+  // }
   return (
     <Provider store={store}>
       <ErrorBoundry>

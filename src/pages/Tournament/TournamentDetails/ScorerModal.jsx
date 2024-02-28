@@ -195,7 +195,7 @@ function ScorerModal({ showModal, handleShowModal, matchId, refetchData, isViewS
                 id=""
                 value={scorerEmail}
                 disabled={isViewScorerDetails && !isEdit}
-                className="w-full border border-[#6B7280] outline-none focus:border-blue-500 text-white px-2 py-2  rounded-md"
+                className="w-full border bg-[#4B5563] border-[#6B7280] outline-none focus:border-blue-500 text-white px-2 py-2  rounded-md"
                 style={{
                   backgroundColor: "rgb(75 85 99)",
                 }}

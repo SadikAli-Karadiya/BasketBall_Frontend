@@ -117,7 +117,13 @@ export default function MatchScoreTable({ data }) {
                     {data?.data?.match_data?.team_1_total_points}
                   </td>
                   <td className="border-t px-1 py-2 sm:text-sm lg:text-base font-semibold text-emerald-500">
+                    {data?.data?.match_data?.team_1_total_fouls}
+                  </td>
+                  <td className="border-t px-1 py-2 sm:text-sm lg:text-base font-semibold text-emerald-500">
                     {data?.data?.match_data?.team_2_total_points}
+                  </td>
+                  <td className="border-t px-1 py-2 sm:text-sm lg:text-base font-semibold text-emerald-500">
+                    {data?.data?.match_data?.team_2_total_fouls}
                   </td>
                   <td className="border-t px-1 py-2 text-sm lg:text-base font-medium text-gray-400">
                     Total

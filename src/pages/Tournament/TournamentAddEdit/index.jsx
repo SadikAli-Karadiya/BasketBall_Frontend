@@ -110,7 +110,7 @@ function TournamentAddEdit() {
       open: false,
     },
     tournament_level: "",
-    city_name: "",
+    address: "",
     about_tournament: "",
     referees: [
       {
@@ -151,7 +151,7 @@ function TournamentAddEdit() {
       open: location?.state?.tournamentDetails.age_categories?.includes('open'),
     },
     tournament_level: location?.state?.tournamentDetails.level,
-    city_name: location?.state?.tournamentDetails.address,
+    address: location?.state?.tournamentDetails.address,
     about_tournament: location?.state?.tournamentDetails.about == null ? '' : location?.state?.tournamentDetails.about,
     referees:
       location?.state?.tournamentDetails.tournament_referees.length > 0
@@ -231,7 +231,7 @@ function TournamentAddEdit() {
       formdata.append('tournament_name', data.tournament_name)
       formdata.append('start_date', data.starting_date)
       formdata.append('end_date', data.ending_date)
-      formdata.append('address', data.city_name)
+      formdata.append('address', data.address)
       formdata.append('gender_types', JSON.stringify(gender_types))
       formdata.append('age_categories', JSON.stringify(age_categories))
       formdata.append('level', data.tournament_level)
@@ -363,7 +363,7 @@ function TournamentAddEdit() {
                 />
               </div>
             </div>
-            {/* Starting Date && Ending Date && City Name */}
+            {/* Starting Date && Ending Date && Address */}
             <div className="flex flex-col md:flex-row  gap-6 my-7 ">
               <div className="flex flex-col sm:flex-row sm:space-x-5 w-full ">
                 <div className="w-full">
@@ -407,21 +407,21 @@ function TournamentAddEdit() {
                 </div>
               </div>
               <div className="flex flex-col w-full">
-                <label className="mb-2">City Name *</label>
+                <label className="mb-2">Address *</label>
                 <input
                   className="rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent"
-                  placeholder="Enter City Name"
+                  placeholder="Enter Address"
                   type="text"
-                  name="city_name"
-                  id="city_name"
-                  value={values.city_name}
+                  name="address"
+                  id="address"
+                  value={values.address}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
                 {
-                  errors.city_name && touched.city_name
+                  errors.address && touched.address
                     ?
-                    <small className='text-sm font-semibold text-red-600 px-1'>{errors.city_name}</small>
+                    <small className='text-sm font-semibold text-red-600 px-1'>{errors.address}</small>
                     :
                     null
                 }

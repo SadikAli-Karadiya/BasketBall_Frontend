@@ -7,18 +7,18 @@ import moment from 'moment'
 export default function NewsCard(news) {
   let tags = news?.news?.tags?.split(",");
   return (
-    <div className="cursor-pointer relative shadow-2xl rounded  group">
+    <div className="cursor-pointer relative shadow-2xl group rounded-2xl overflow-hidden">
       <Link
         className="Link"
         to={`/news/${news?.news?.id}/${news?.news?.title.split(" ").join("-")}`}
       >
-        <div className="w-full ">
+        <div className="w-full">
           <LazyLoad placeholder={<WB />} once>
-            <img className=" rounded-2xl h-full w-full" src={news?.news?.photo} />
+            <img className=" h-80 w-full object-cover" src={news?.news?.photo} />
           </LazyLoad>
         </div>
         <div
-          className={`absolute overflow-hidden  rounded-b-2xl flex flex-col  space-y-0 md:space-y-0 justify-end w-full  bottom-0  left-0 text-white bg-gradient-to-l   from-transparent via-black  to-gray-900 px-2  py-2 lg:px-8 lg:pt-4 pb-2 opacity-90 group-hover:opacity-100  duration-500 transition`}>
+          className={`absolute overflow-hidden flex flex-col  space-y-0 md:space-y-0 justify-end w-full  bottom-0  left-0 text-white bg-gradient-to-l   from-gray-300 via-black  to-gray-900 px-2  py-2 lg:px-8 lg:pt-4 pb-2 opacity-90 group-hover:opacity-100  duration-500 transition`}>
 
           <div className="py-1 lg:pt-3 leading-relaxed overflow-hidden w-full">
             <h1

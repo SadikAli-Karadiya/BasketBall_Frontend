@@ -56,7 +56,7 @@ const signUpSchema = Yup.object({
     Confirmpassword: Yup.string().required("Confirm password is required")
     .oneOf([Yup.ref("password"), null], "Confirm Password must match"),
 
-    terms: Yup.string().required("Please select Terms and Conditions"),
+    terms: Yup.string().required("Please accept Terms and Conditions"),
 });
 
 
@@ -156,9 +156,9 @@ function Register() {
                                 <BsFillPatchCheckFill className="text-5xl text-green-700" />
                             </div>
                             <div className="space-y-2">
-                                <p className='font-semibold text-green-500 text-center text-2xl sm:text-base '>Signup Successful !</p>
-                                <p className='font-semibold text-gray-500 text-center text-2xl sm:text-base '>Verification link has been send to your</p>
-                                <p className='font-semibold text-gray-500 text-center text-2xl sm:text-base '> Email or SMS. Please check it.</p>
+                                <p className='font-semibold text-green-500 text-center text-2xl sm:text-base '>Signup Successful!</p>
+                                <p className='font-semibold text-gray-500 text-center text-2xl sm:text-base '>Verification link has been sent to your email.</p>
+                                <p className='font-semibold text-gray-500 text-center text-2xl sm:text-base '> Please verify.</p>
                             </div>
                             {/* <Link to={"/login"}>
                                 <div className='flex justify-center  py-5 items-center font-semibold text-slate-400 cursor-pointer hover:text-black space-x-2'>
@@ -280,8 +280,8 @@ function Register() {
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
                                                 />
-                                                <Link to={"/terms-and-condition"}>
-                                                    <p className="text-base text-[#ee6730] cursor-pointer">Terms and Conditions</p>
+                                                <Link to={"/terms-and-condition"} target="_blank">
+                                                    <p className="text-base text-[#ee6730] cursor-pointer">I accept terms and conditions</p>
                                                 </Link>
                                             </div>
                                             {errors.terms && touched.terms
