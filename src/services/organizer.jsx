@@ -153,10 +153,10 @@ export const organizerApi = api.injectEndpoints({
         }
     }),
 
-    matchFormation: build.mutation({
+    matchFormationAuto: build.mutation({
         query: ({tournament_id, is_formation_by_group, formation_method, round_name, gender_type, age_type})=>{
             return {
-                url: `tournament/match-formation/${tournament_id}`,
+                url: `tournament/match-formation-auto/${tournament_id}`,
                 method: "PUT",
                 body:{
                     is_formation_by_group,
@@ -164,6 +164,23 @@ export const organizerApi = api.injectEndpoints({
                     round_name,
                     gender_type, 
                     age_type
+                },
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }; 
+        }
+    }),
+
+    matchFormationManual: build.mutation({
+        query: ({tournament_id, round_name, matches})=>{
+            return {
+                url: `tournament/match-formation-manual/${tournament_id}`,
+                method: "PUT",
+                body:{
+                    tournament_id, 
+                    round_name, 
+                    matches
                 },
                 headers: {
                     "Content-Type": "application/json",
@@ -209,7 +226,8 @@ export const {
     useDisqualifyTeamMutation,
     useRequalifyTeamMutation,
     useCreatePoolsMutation,
-    useMatchFormationMutation,
+    useMatchFormationAutoMutation,
+    useMatchFormationManualMutation,
     useUploadGalleryImageMutation,
     useDeleteGalleryImageMutation,
 } = organizerApi;

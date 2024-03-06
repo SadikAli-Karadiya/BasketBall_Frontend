@@ -106,10 +106,22 @@ function MatchCard({ match }) {
                     "To Be Announced"
                   : 
                     <>
-                      {moment(match.start_date).format("DD-MM-YYYY")}
-                      <span className="ml-2 font-medium">
-                        {moment(match.start_time, "h:mm a").format("h:mm A")}
-                      </span>
+                      {
+                        match.start_date != '' && match.start_date != undefined && match.start_date != null
+                        ?
+                          moment(match.start_date).format("DD-MM-YYYY")
+                        : 
+                          null
+                      }
+                      {
+                        match.start_time != '' && match.start_time != undefined && match.start_time != null
+                        ?
+                          <span className="ml-2 font-medium">
+                            {moment(match.start_time, "h:mm a").format("h:mm A")}
+                          </span>
+                        : 
+                          null
+                      }
                     </>
                 }
               </p>

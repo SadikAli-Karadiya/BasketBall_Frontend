@@ -47,7 +47,7 @@ function TournamentDetails() {
     <Sponsors sponsors={tournamentDetails.tournament_sponsors} />,
     <Gallery galleryDetails={tournamentDetails.gallery} refetchData={refetch} />,
     <About isOrganizer={isOrganizer} tournamentDetails={tournamentDetails} />,
-    <Admin tournamentDetails={tournamentDetails} teams={tournamentDetails.tournament_teams} refetchData={refetch} />,
+    <Admin tournamentDetails={tournamentDetails} teams={tournamentDetails.tournament_teams} refetchData={refetch} gender_types={tournamentDetails.gender_types} age_categories={tournamentDetails.age_categories} />,
   ];
 
   const handleRegisterInTournament = () => {
@@ -65,11 +65,11 @@ function TournamentDetails() {
           <div className="team-logo-container w-16 h-16 xs:w-20 xs:h-20 sm:w-28 sm:h-28 flex justify-center items-center overflow-hidden rounded-full border-2 border-gray-500">
             <picture></picture>
             <source
-              srcSet={!tournamentDetails.logo ? '/CBL_Images/basketball_team_logo_2.webp': tournamentDetails.logo}
+              srcSet={tournamentDetails.logo}
               type="image/webp"
             />
             <img
-              src={!tournamentDetails.logo ? '/CBL_Images/basketball_team_logo_2.webp': tournamentDetails.logo}
+              src={tournamentDetails.logo}
               className="object-cover w-full h-full"
             />
           </div>

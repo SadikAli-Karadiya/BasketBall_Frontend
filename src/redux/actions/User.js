@@ -15,6 +15,7 @@ export const authentication = (token, user) => {
 
 export const logout = () => {
   localStorage.clear(); 
+  
   return async (dispatch) => {
     dispatch(setToken(null));
     dispatch(setUser({}));

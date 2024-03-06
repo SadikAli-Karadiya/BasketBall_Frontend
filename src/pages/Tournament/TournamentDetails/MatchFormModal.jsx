@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Select from "react-select";
 import { Modal } from "../../../Component/Modal";
-import { useMatchFormationMutation } from "../../../services/organizer";
+import { useMatchFormationAutoMutation } from "../../../services/organizer";
 
 function MatchFormModal({ showModal, handleShowModal, refetchData, tournamentDetails }) {
   const {tournament_id} = useParams();
@@ -15,7 +15,7 @@ function MatchFormModal({ showModal, handleShowModal, refetchData, tournamentDet
   const [isFormByGroup, setIsFormByGroup] = React.useState(null);
   const [error, setError] = useState("");
 
-  const [matchFormation, {isLoading}] = useMatchFormationMutation();
+  const [matchFormationAuto, {isLoading}] = useMatchFormationAutoMutation();
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
@@ -103,7 +103,7 @@ function MatchFormModal({ showModal, handleShowModal, refetchData, tournamentDet
       return;
     }
 
-    const response = await matchFormation({
+    const response = await matchFormationAuto({
       tournament_id: tournament_id, 
       is_formation_by_group: isFormByGroup, 
       formation_method: formationType.value, 

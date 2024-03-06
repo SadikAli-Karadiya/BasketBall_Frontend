@@ -217,13 +217,13 @@ function Schedule({isOrganizer, refetchData}) {
                                                             {idx+1}
                                                         </th>
                                                         <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                            <span className="cursor-pointer hover:text-gray-300" onClick={()=> navigate(`/team/profile-detail/1`)}>{match.team_1.team_name}</span>
+                                                            <span className="cursor-pointer hover:text-gray-300" onClick={()=> navigate(`/team/profile-detail/${match.team_1.id}`)}>{match.team_1.team_name}</span>
                                                         </td>
                                                         <td className="px-6 py-4 whitespace-nowrap">
                                                             VS
                                                         </td>
                                                         <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                            <span className="cursor-pointer hover:text-gray-300" onClick={()=> navigate(`/team/profile-detail/1`)}>{match.team_2.team_name}</span>
+                                                            <span className="cursor-pointer hover:text-gray-300" onClick={()=> navigate(`/team/profile-detail/${match.team_2.id}`)}>{match.team_2.team_name}</span>
                                                         </td>
                                                         <td className="px-6 py-4 whitespace-nowrap">
                                                             {

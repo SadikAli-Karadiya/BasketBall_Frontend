@@ -18,7 +18,7 @@ import {
 import SmallLoader from '../../../Component/SmallLoader'
 import moment from 'moment'
 
-function Admin({tournamentDetails, refetchData, teams}) {
+function Admin({tournamentDetails, refetchData, teams, gender_types, age_categories}) {
   const navigate = useNavigate();
   const {tournament_id} = useParams();
 
@@ -252,11 +252,31 @@ function Admin({tournamentDetails, refetchData, teams}) {
                 }
                 
                 <div className="mr-4 mt-2">
-                  <div className="md:w-40">
+                  <div className="md:w-56">
                     <Button
                       margin={false}
-                      text="Form Matches"
+                      text="Form Matches (Auto)"
                       onClick={() => setMatchFormModal(true)}
+                    />
+                  </div>
+                </div>
+                <div className="mr-4 mt-2">
+                  <div className="md:w-56">
+                    <Button
+                      margin={false}
+                      text="Form Matches (Manual)"
+                      onClick={() => 
+                        navigate('manual-match-formation', 
+                        {
+                          state:
+                          {
+                            tournament_name: tournamentDetails.tournament_name,
+                            tournament_teams: teams,
+                            gender_types,
+                            age_categories
+                          }
+                        }
+                      )}
                     />
                   </div>
                 </div>
@@ -308,26 +328,6 @@ function Admin({tournamentDetails, refetchData, teams}) {
         tournamentDetails.status != 3 && tournamentDetails.status != -1 
         ?
           <>
-            {/* <div className="mt-10 flex flex-wrap sm:justify-start justify-center space-y-2 space-x-0 xs:space-y-0 xs:space-x-1 sm:space-x-6 sm:space-y-0">
-              <div className="flex flex-col justify-center items-center w-36 h-20 md:w-40 md:h-24 rounded-md shadow-lg">
-                <h3 className="text-xs sm:text-base md:text-lg font-semibold mt-1">Total Teams</h3>
-                <div>
-                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-500 mt-1">{teams.length}</h3>
-                </div>
-              </div>
-              <div className="flex flex-col justify-center items-center w-36 h-20 md:w-40 md:h-24 rounded-md shadow-lg">
-                <h3 className="text-xs sm:text-base md:text-lg text-green-700 font-semibold mt-1">Playing</h3>
-                <div>
-                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-500 mt-1">{teams.length - disqualifiedTeams}</h3>
-                </div>
-              </div>
-              <div className="flex flex-col justify-center items-center w-36 h-20 md:w-40 md:h-24 rounded-md shadow-lg ml-3">
-                <h3 className="text-xs sm:text-base md:text-lg text-red-600 font-semibold mt-1">Disqualified</h3>
-                <div>
-                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-500 mt-1">{disqualifiedTeams}</h3>
-                </div>
-              </div>
-            </div> */}
             <div className="mt-10">
               <h3 className="text-lg text-gray-600 font-semibold">Teams Requests</h3>
               <div className="table-container relative overflow-x-auto shadow-md sm:rounded-lg mt-5">

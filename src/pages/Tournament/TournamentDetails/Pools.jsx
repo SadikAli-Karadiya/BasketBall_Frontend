@@ -68,6 +68,13 @@ function Pools({tournamentTeams, gender_types, age_categories}) {
       })
     })
 
+    // Sort pools alphabetically
+    allPools.sort((a, b) => {
+      const poolNameA = Object.keys(a)[0];
+      const poolNameB = Object.keys(b)[0];
+      return poolNameA.localeCompare(poolNameB);
+    });
+
     setPools(allPools)
   }
 
@@ -88,6 +95,13 @@ function Pools({tournamentTeams, gender_types, age_categories}) {
         }
       })
     })
+
+    // Sort pools alphabetically
+    allPools.sort((a, b) => {
+      const poolNameA = Object.keys(a)[0];
+      const poolNameB = Object.keys(b)[0];
+      return poolNameA.localeCompare(poolNameB);
+    });
 
     setPools(allPools)
   }
@@ -131,8 +145,8 @@ function Pools({tournamentTeams, gender_types, age_categories}) {
             pools.map((pool, idx)=>{
               return(
                 <div key={idx}>
-                  <div className='sm:text-lg bg-black py-1 text-center text-gray-400 font-semibold'>Pool {Object.keys(pool)[0]}</div>
-                  <div className="py-8 px-4 mb-6 flex flex-wrap justify-center items-center gap-5 bg-gray-200">
+                  <div className='sm:text-lg bg-black py-1 text-center text-gray-400 font-semibold rounded-md'>Pool {Object.keys(pool)[0]}</div>
+                  <div className="py-8 px-4 mb-6 flex flex-wrap justify-center items-center gap-5 bg-gray-200 rounded-md">
                   {
                     pool[Object.keys(pool)[0]].map((item, i) => {
                       return(

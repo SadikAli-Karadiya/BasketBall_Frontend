@@ -5,6 +5,7 @@ import TournamentsList from "./TournamentsList";
 import TournamentsOfOrganizer from "./TournamentsOfOrganizer";
 import TournamentDetails from "./TournamentDetails";
 import TeamRegister from "./TournamentDetails/TeamRegister";
+import ManualMatchFormation from "./TournamentDetails/ManualMatchFormation";
 
 const Tournament = () => {
   return (
@@ -17,6 +18,7 @@ const Tournament = () => {
             element={<TeamRegister />}
           />
           <Route path="/:tournament_id" element={<TournamentDetails />} />
+          <Route path="/:tournament_id/manual-match-formation" element={<ManualMatchFormation />} />
           <Route path="/organizer" element={<TournamentsOfOrganizer />} />
           <Route path="/" element={<TournamentsList />} />
         </Route>

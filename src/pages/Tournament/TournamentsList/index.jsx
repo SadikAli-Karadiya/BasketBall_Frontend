@@ -2,7 +2,6 @@ import React from "react";
 import TournamentCard from "../../../Component/TournamentCard";
 import SmallLoader from "../../../Component/SmallLoader";
 import { GiDiamondTrophy } from "react-icons/gi";
-import Heading from "../../../Component/Heading";
 import Paginate from "../../../Component/Pagination";
 import { useGetAllTournamentsQuery } from "../../../services/tournament";
 
@@ -14,6 +13,16 @@ function TournamentsList() {
   const [pastTournaments, setPastTournaments] = React.useState([]);
   const [currentTabTournaments, setCurrentTabTournaments] = React.useState([]);
   const { data, isLoading, isError, error } = useGetAllTournamentsQuery();
+
+  React.useEffect(() => {
+    if (currentTab == 1) {
+      setCurrentTabTournaments(ongoingTournaments);
+    } else if (currentTab == 2) {
+      setCurrentTabTournaments(upcomingTournaments);
+    } else {
+      setCurrentTabTournaments(pastTournaments);
+    }
+  }, [currentTab]);
 
   React.useEffect(() => {
     const upcoming = [];
@@ -34,16 +43,6 @@ function TournamentsList() {
     setOngoingTournaments(ongoing);
     setPastTournaments(past);
   }, [data]);
-
-  React.useEffect(() => {
-    if (currentTab == 1) {
-      setCurrentTabTournaments(ongoingTournaments);
-    } else if (currentTab == 2) {
-      setCurrentTabTournaments(upcomingTournaments);
-    } else {
-      setCurrentTabTournaments(pastTournaments);
-    }
-  }, [currentTab]);
 
   return (
     <section className="min-h-screen-fit">
@@ -94,9 +93,9 @@ function TournamentsList() {
         <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 md:gap-12 mt-10 sm:mt-12 md:mt-16">
           {
             isLoading
-              ?
+            ?
               <SmallLoader />
-              :
+            :
               currentTab == 3 && paginationData.length > 0
                 ?
                 paginationData.map((tournament, index) => {
