@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { useGetNewsDetailsQuery } from "../../services/news";
 import moment from 'moment'
+import { API_BASE_URL } from "../../../constant";
 
 const   NewsDetail = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const   NewsDetail = () => {
             <WhatsappShareButton
               className=""
               separator=""
-              url={`https://thecbl.in/news/${params.id}/${params.title}`}
+              url={`https://${API_BASE_URL}/news/${params.id}/${params.title}`}
               quote={""}
             >
               <WhatsappIcon
