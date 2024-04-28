@@ -10,10 +10,11 @@ import { useUpdateProfileMutation } from "../../services/user"
 import { setUser } from "../../redux/slices/UserSlice";
 
 const profileSchema = Yup.object({
-  full_name: Yup.string().min(2).max(25).matches(/^[a-zA-Z ]+$/, "Please enter only characters").required("Please enter full name"),
+  full_name: Yup.string().min(8, "Name must be atleast 8 characters long")
+    .max(35, "Name shouldn't be more than 35 characters long").matches(/^[A-Za-z]+(?: [A-Za-z]+(?: [A-Za-z]+)?)?(?: [A-Za-z]+(?: [A-Za-z]+)?)?$/, "Please enter valid name").required("Please enter full name"),
   email: Yup.string().email("Please enter valid email").required("Please enter your email"),
-  phone: Yup.string("Please enter valid phone number").min(10).max(10).matches(/^[0-9]+$/, "Please enter only numbers").required("Please enter your phone number").nullable(),
-  password: Yup.string().required("Please enter password"),
+  phone: Yup.string("Please enter valid phone number").min(10).max(10).matches(/^[1-9][0-9]{9}$/, "Please enter only numbers").required("Please enter your phone number").nullable(),
+  password: Yup.string().required("Please enter password").matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d|\W)(?!.*\s).{8,}$/, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit or special character."),
   confirmpassword: Yup.string().required("Confirm password is required").oneOf([Yup.ref("password"), null], "Password not match"),
 });
 

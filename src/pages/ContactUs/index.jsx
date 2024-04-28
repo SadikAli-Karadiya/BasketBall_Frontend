@@ -18,10 +18,15 @@ const ContactUs = () => {
     email: '',
     message: ''
   }
+  
   const validationSchema = Yup.object({
-    name: Yup.string().matches(/^[a-zA-Z ]+$/, "Please enter only characters").min(3, 'Atleast 3 characters are required').max(30, "Name cannot be more than 30 characters long").required("Name is required"),
+    name: Yup.string().matches(/^[A-Za-z]+(?: [A-Za-z]+(?: [A-Za-z]+)?)?(?: [A-Za-z]+(?: [A-Za-z]+)?)?$/, "Please enter valid name").min(3, 'Atleast 3 characters are required').max(30, "Name cannot be more than 30 characters long").required("Name is required"),
     email: Yup.string().email('Please enter a valid email').required("Email is required"),
-    message: Yup.string().required("Message is required"),
+    message: Yup.string()
+    .required("Message is required")
+    .min(8, 'Atleast 8 characters are required')
+    .max(200, "Miximum 200 characters are allowed")
+    .matches(/^(.|\s)*[a-zA-Z]+(.|\s)*$/, "Please enter valid message"),
   })
 
 

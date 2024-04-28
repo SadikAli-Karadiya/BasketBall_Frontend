@@ -39,9 +39,17 @@ const newsSchema = Yup.object({
       }
       return value && value.size <= 2097152
     }),
-  title: Yup.string().required("Please enter title"),
-  tags: Yup.string().required("Please enter tags"),
-  description: Yup.string().required("Please enter description"),
+  title: Yup.string()
+  .required("Please enter title")
+  .min(8, 'Atleast 8 characters are required')
+  .max(35, "Miximum 35 characters are allowed")
+  .matches(/^(.|\s)*[a-zA-Z]+(.|\s)*$/, "Please enter valid title"),
+  tags: Yup.string().required("Please enter tags").matches(/^(.|\s)*[a-zA-Z]+(.|\s)*$/, "Please enter valid tags"),
+  description: Yup.string()
+  .required("Please enter description")
+  .min(15, 'Atleast 15 characters are required')
+  .max(400, "Miximum 400 characters are allowed")
+  .matches(/^(.|\s)*[a-zA-Z]+(.|\s)*$/, "Please enter valid description"),
 });
 
 const NewsList = () => {

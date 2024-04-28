@@ -9,13 +9,13 @@ import { authentication } from "../../redux/actions/User";
 import { useGoogleLogin } from '@react-oauth/google';
 import { useSigninMutation, useGoogleLoginMutation } from "../../services/authentication";
 
-const signUpSchema = Yup.object({
+const loginSchema = Yup.object({
   mobile: Yup.string()
       .required("Please enter your mobile no.")
-      .matches(/^[0-9]+$/, "Please enter only numbers")
+      .matches(/^[1-9][0-9]{9}$/, "Please enter valid mobile number")
       .min(10, "Mobile number should be at least 10 digits")
       .max(10, "Mobile number should be at least 10 digits"),
-  password: Yup.string().required("Please enter password"),
+  password: Yup.string().required("Please enter password").min(4, 'Atleast 4 characters are required').max(25, "Miximum 25 characters are allowed"),
 });
 
 const initialValues = {
@@ -56,7 +56,7 @@ function Login() {
   const { values, errors, handleBlur, touched, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
-      validationSchema: signUpSchema,
+      validationSchema: loginSchema,
       async onSubmit(data) {
         const res = await signin(data)
         

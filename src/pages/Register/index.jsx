@@ -23,8 +23,8 @@ const signUpSchema = Yup.object({
       }
       return true;
     })
-    .min(2, "Name must be atleast 2 characters long")
-    .max(25, "Name shouldn't be more than 25 characters").matches(/^[a-zA-Z ]+$/, "Please enter only characters").required("Please enter your full name"),
+    .min(8, "Name must be atleast 8 characters long")
+    .max(35, "Name shouldn't be more than 35 characters long").matches(/^[A-Za-z]+(?: [A-Za-z]+(?: [A-Za-z]+)?)?(?: [A-Za-z]+(?: [A-Za-z]+)?)?$/, "Please enter valid name").required("Please enter your full name"),
 
     email: Yup.string().email()
     .test('trim', 'Must not contain leading or trailing spaces', (value) => {
@@ -42,7 +42,7 @@ const signUpSchema = Yup.object({
       }
       return true;
     })
-    .min(10, "Enter valid mobile no.").max(10, "Enter valid mobile no.").matches(/^[0-9]+$/, "Please enter only numbers").phone(null, true, "Please enter your phone number").required("Please enter your phone number"),
+    .min(10, "Enter valid mobile no.").max(10, "Enter valid mobile no.").matches(/^[1-9][0-9]{9}$/, "Please enter valid mobile number").phone(null, true, "Please enter your phone number").required("Please enter your phone number"),
    
     password: Yup.string()
     .required("Please enter password")
@@ -51,7 +51,8 @@ const signUpSchema = Yup.object({
         return value.trim() === value; 
       }
       return true;
-    }),
+    })
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d|\W)(?!.*\s).{8,}$/, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit or special character."),
 
     Confirmpassword: Yup.string().required("Confirm password is required")
     .oneOf([Yup.ref("password"), null], "Confirm Password must match"),

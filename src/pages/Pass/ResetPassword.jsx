@@ -8,8 +8,8 @@ import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { useResetPasswordMutation } from '../../services/authentication'
 
-const signUpSchema = Yup.object({
-    password: Yup.string().required("Please enter password"),
+const validationSchema = Yup.object({
+    password: Yup.string().required("Please enter password").matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d|\W)(?!.*\s).{8,}$/, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit or special character."),
     confirm_password: Yup.string().required().oneOf([Yup.ref("password"), null],"Confirm Password must match")
 });
 
@@ -29,7 +29,7 @@ function ResetPassword() {
 
     const { values, errors, handleBlur, touched, handleChange, handleSubmit } = useFormik({
         initialValues: initialValues,
-        validationSchema: signUpSchema,
+        validationSchema: validationSchema,
         async onSubmit(data) {
             const response = await resetPassword({token, password: data.password})
             if (response.error) {
