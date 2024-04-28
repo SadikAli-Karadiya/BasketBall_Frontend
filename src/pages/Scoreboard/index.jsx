@@ -331,14 +331,14 @@ function index() {
                             <div className='flex space-x-1'>
                                 {
                                     _.times(5, (i)=>(
-                                        <div key={i} className={`md:w-3 md:h-3 w-2 h-2 bg-green-500 rounded-full ${i+1 <= matchDetails?.team_1_total_won? 'bg-green-500': 'bg-gray-500'}`}></div>
+                                        <div key={i} className={`md:w-3 md:h-3 w-2 h-2 rounded-full ${i+1 <= matchDetails?.team_1_total_won? 'bg-green-500': 'bg-gray-500'}`}></div>
                                     ))
                                 }
                             </div>
                             <div className='flex flex-row-reverse '>
                                 {
                                     _.times(5, (i)=>(
-                                        <div key={i} className={`md:w-3 md:h-3 w-2 h-2 ml-1 bg-green-500 rounded-full ${i+1 <= matchDetails?.team_2_total_won? 'bg-green-500': 'bg-gray-500'}`}></div>
+                                        <div key={i} className={`md:w-3 md:h-3 w-2 h-2 ml-1 placeholder:rounded-full ${i+1 <= matchDetails?.team_2_total_won? 'bg-green-500': 'bg-gray-500'}`}></div>
                                     ))
                                 }
                             </div>

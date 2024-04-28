@@ -107,7 +107,7 @@ export default function MatchProfile({ data }) {
                 <div className='flex space-x-1 ml-3'>
                   {
                       _.times(5, (i)=>(
-                          <div key={i} className={`md:w-3 md:h-3 w-2 h-2 bg-green-500 rounded-full ${i+1 <= data?.data?.match_data?.team_1_total_won ? 'bg-green-500' : 'bg-gray-500'}`}></div>
+                          <div key={i} className={`md:w-3 md:h-3 w-2 h-2 rounded-full ${i+1 <= data?.data?.match_data?.team_1_total_won ? 'bg-green-500' : 'bg-gray-500'}`}></div>
                       ))
                   }
                 </div>
@@ -115,7 +115,7 @@ export default function MatchProfile({ data }) {
                 <div className='flex space-x-1 mr-3'>
                   {
                       _.times(5, (i)=>(
-                          <div key={i} className={`md:w-3 md:h-3 w-2 h-2 bg-green-500 rounded-full ${i+1 <= data?.data?.match_data?.team_2_total_won ? 'bg-green-500' : 'bg-gray-500'}`}></div>
+                          <div key={i} className={`md:w-3 md:h-3 w-2 h-2 rounded-full ${i+1 <= data?.data?.match_data?.team_2_total_won ? 'bg-green-500' : 'bg-gray-500'}`}></div>
                       ))
                   }
                 </div>
