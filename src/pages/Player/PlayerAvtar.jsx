@@ -19,8 +19,10 @@ export default function PlayerAvtar({ player }) {
   }
 
   React.useEffect(()=>{
-    const player_bio = truncateString(player?.SinglePlayerDetails.about, 50)
-    setPlayerBio(player_bio)
+    if(player?.SinglePlayerDetails.about){
+      const player_bio = truncateString(player?.SinglePlayerDetails.about, 50)
+      setPlayerBio(player_bio)
+    }
   },[])
 
   return (
@@ -44,7 +46,7 @@ export default function PlayerAvtar({ player }) {
                   <h1 className="text-start px-3 w-20 text-white rounded-md uppercase font-semibold bg-black">About</h1>
                   <div className="">
                     <p className="text-start py-2 text-slate-700">
-                      {player.SinglePlayerDetails.about}
+                      {player.SinglePlayerDetails.about ?? '--'}
                     </p>
 
                   </div>

@@ -7,11 +7,10 @@ export const GameInfoSchema = Yup.object({
   weight: Yup.number()
     .required("Please enter your weight")
     .min(15, "Weight should be min 15 KG").max(120, "Weight should not be greater than 120 KG"),
-  playing_position: Yup.string().required("Please select your position"),
+  playing_position: Yup.string(),
   jersey_no: Yup.number()
     .min(1, "Jersey no. must be greater than 1")
     .max(999, "Jersey no. should not be greater than 999")
-    .required("Please enter jersey number")
     .integer("Please enter valid jersey number"),
   about: Yup.string()
     .test('trim', 'About must not contain trailing spaces', (value) => {
@@ -20,7 +19,6 @@ export const GameInfoSchema = Yup.object({
       }
       return true;
     })
-    .required("Please write something about yourself and your experience")
     .min(10, 'Atleast 10 characters are required')
     .max(120, "Miximum 120 characters are allowed")
     .matches(/^[A-Za-z0-9\s.,\/\-()#]+$/, "Please enter valid characters containing only letters, numbers, spaces, and common punctuation marks.")

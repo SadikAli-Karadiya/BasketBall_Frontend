@@ -84,13 +84,13 @@ export default function PlayerInfo({ PlayerDetail }) {
           <div className="bg-white px-2 py-1 rounded-lg border-2 border-orange-100 shadow-xl">
             <span className="text-xs md:text-base">Jersey Number :</span>
             <span className="text-xs md:text-sm font-semibold px-1">
-              {PlayerDetail?.SinglePlayerDetails?.jersey_no}
+              {PlayerDetail?.SinglePlayerDetails?.jersey_no ?? '--'}
             </span>
           </div>
           <div className="bg-white px-2 py-1 rounded-lg border-2 border-orange-100 shadow-xl">
             <span className="text-xs md:text-base">Game Position : </span>
             <span className="text-xs md:text-sm font-semibold capitalize ">
-              {PlayerDetail?.SinglePlayerDetails?.playing_position}
+              {PlayerDetail?.SinglePlayerDetails?.playing_position ?? '--'}
             </span>
           </div>
         </div>

@@ -12,7 +12,7 @@ import Player from "../pages/Player";
 import Role from "../pages/Role";
 import VisitorProfile from "../pages/Profile";
 import AfterRole from "../pages/RegisterAfterLogin";
-import TermsandConditions from "../pages/Term&Condistions";
+import TermsandConditions from "../pages/Term&Conditions";
 import MatchsList from "../pages/Matches";
 import TeamProfileDetail from "../pages/Team/TeamProfileDetail";
 import PageNotFound from "../pages/Error";
@@ -28,23 +28,39 @@ import MatchPlayerSelection from "../pages/Matches/MatchPlayerSelection";
 import AdminLayout from "../layouts/AdminLayout";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
 import Admin from '../pages/Admin'
+import { logout } from "../redux/actions/User";
 
 const PrivateRoutes = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [querySkip, setQuerySkip] = React.useState(true);
+
   const { token, user } = useSelector((state) => state.user);
   
-  const { data, isLoading, isError, error } = useGetUserDataQuery();
+  const { data, isLoading, isError, error } = useGetUserDataQuery(undefined, { skip: querySkip });
 
   React.useEffect(() => {
+    
+    const token = localStorage.getItem("token");
+      if (token && !Object.keys(user).length) {
+        setQuerySkip(false);
+      }
+  }, []);
+
+  React.useEffect(() => {
+    
     if (isError) {
-      toast.error(error?.data.message);
+      setQuerySkip(true);
+      dispatch(logout());
       navigate("/");
-    } else if (data?.success) {
+    } 
+    else if (data && data.success) {
+      setQuerySkip(true);
       dispatch(authentication(token, data.user));
     }
-  }, [data]);
+  
+  }, [data, isError]);
 
   if (isLoading) {
     return <Loader />;

@@ -12,7 +12,7 @@ import Gallery from '../pages/Gallery'
 import ForgetPassword from "../pages/Pass/ForgetPassword"
 import Role from '../pages/Role'
 import PageNotFound from "../pages/Error";
-import TermsandConditions from '../pages/Term&Condistions'
+import TermsandConditions from '../pages/Term&Conditions'
 
 const PublicRoutes = () => (
     <Routes>
