@@ -34,8 +34,8 @@ function VisitorProfile() {
     full_name: user.name,
     email: user.email,
     phone: user.mobile,
-    password: "Wellbenix",
-    confirmpassword: "Wellbenix",
+    password: "Wellbenix2024",
+    confirmpassword: "Wellbenix2024",
   };
 
   const { values, errors, handleBlur, touched, handleChange, handleSubmit } = useFormik({
