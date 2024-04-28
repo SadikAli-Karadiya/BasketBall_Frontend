@@ -162,7 +162,6 @@ function Schedule({isOrganizer, refetchData}) {
                     schedule.length > 0
                     ?
                         schedule.map((item, i)=>{
-                            console.log(item)
                         return <div key={i} className={`${i != 0 ? 'mt-10': ''}`}>
                                 <h3 className='mb-2 text-xs sm:text-base font-medium text-gray-600'>{item.round_name}</h3>
                                 <div key={i} className="table-container relative overflow-x-auto shadow-md rounded-md sm:rounded-lg">
