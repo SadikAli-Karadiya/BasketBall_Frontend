@@ -257,7 +257,7 @@ const ContactUs = () => {
                   <HiPhone className='text-[#ee6730] text-2xl' />
                   <h1 className='ml-2 sm:ml-0 capitalize text-[#ee6730] font-medium mb-4'>Call us</h1>
                 </div>
-                <p className='text-gray-800 tracking-wide mb-1'>+91 70411 06701</p>
+                <p className='text-gray-800 tracking-wide mb-1'>+91 95371 58221</p>
               </div>
 
               <div className='email mx-0 mb-10'>
@@ -265,7 +265,7 @@ const ContactUs = () => {
                   <IoMdMailOpen className='text-[#ee6730] text-2xl' />
                   <h1 className='ml-2 sm:ml-0 capitalize text-[#ee6730] font-medium mb-4'>Email us</h1>
                 </div>
-                <p className='text-gray-800 tracking-wide mb-1'>contact.cbl@gmail.com</p>
+                <p className='text-gray-800 tracking-wide mb-1'>corporatebasketballleague@gmail.com</p>
               </div>
             </div>
           </div>
