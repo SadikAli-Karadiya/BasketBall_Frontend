@@ -148,7 +148,6 @@ const GameInfo = ({ index, setIndex }) => {
             <div className="  ">
               <label htmlFor="playerPosition" className="text-gray-700">
                 Player Position
-                <span className="text-red-500 required-dot">*</span>
               </label>
               <select
                 type="text"
@@ -177,7 +176,6 @@ const GameInfo = ({ index, setIndex }) => {
             <div>
               <label htmlFor="JerseyNumber" className="text-gray-700">
                 Preferred Jersey Number
-                <span className="text-red-500 required-dot">*</span>
               </label>
               <input
                 type="number"
@@ -199,7 +197,6 @@ const GameInfo = ({ index, setIndex }) => {
             <div className="">
               <label htmlFor="Experience" className="text-gray-700">
                 Experience (Achievement)
-                <span className="text-red-500 required-dot">*</span>
               </label>
               <textarea
                 type="text"

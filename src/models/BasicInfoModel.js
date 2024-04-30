@@ -67,5 +67,5 @@ export const basicInfoSchema = Yup.object({
       return true;
     })
     .min(6, "Please enter valid pincode").max(6, "Please enter valid pincode").required("Please Enter Your Pincode")
-    .matches(/^[1-9][0-9]{9}$/, "* Please enter valid pincode"),
+    .matches(/^\d{6}$/, "* Please enter valid pincode"),
 });
