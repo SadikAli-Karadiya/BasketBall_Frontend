@@ -45,7 +45,7 @@ function TeamAddEdit() {
       : TeamForm.TeamInfo,
     onSubmit: (data) => {
       
-      if (selectedPlayers.length < 1) {
+      if (selectedPlayers.length < 5) {
         toast.error("Please select atleast 5 players");
         return;
       }
