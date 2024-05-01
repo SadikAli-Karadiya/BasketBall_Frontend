@@ -21,59 +21,61 @@ function Tournaments_cards({ tournament }) {
         tournament.scrollLeft = tournament.scrollLeft + 380;
     };
 
+    const maxLength = 20;
+
+    const truncatedText = tournament.tournament_name.length > maxLength ? tournament.tournament_name.slice(0, maxLength) + '...' : tournament.tournament_name;
+
     return (
         <>
-            <div className="relative shadow-lg bg-white shadow-[#ea5a2e99] min-w-[260px] hover:scale-105  duration-300 xs:min-w-[320px] rounded-lg sm:min-w-[350px] md:min-w-[330px] max-w-[300px] h-[170px] xs:h-[190px]  group cursor-pointer" onClick={handleClick}>
-                {/* <div className="relative items-center hover:scale-105 duration-300 cursor-pointer shadow-lg bg-white shadow-[#ea5a2e99] xxs:w-full xs:min-w-full sm:min-w-[100px] md:min-w-[180px]  lg:max-w-[150] xl:w-[320px]  2xl:min-w-[350px]  h-[155px] sm:h-[155px] md:h-[165px] xl:h-[155px] 2xl:h-[180px]
-   group rounded-lg" onClick={handleClick}> */}
+            <div className="relative shadow-lg bg-white shadow-[#f7d12520] min-w-[260px] hover:scale-105  duration-300 xs:min-w-[320px] rounded-lg sm:min-w-[350px] md:min-w-[330px] max-w-[300px] h-[170px] xs:h-[190px]  group cursor-pointer" onClick={handleClick}>
                 <div className='w-full flex justify-end items-end '>
                     <img src="/CBL_Images/495f339d-92fe-4b3c-a820-621336d292f6.jpg" alt="" className='rounded-lg w-2/4 xs:w-2/4 sm:w-1/2 lg:w-2.5/5 xl:w-2/4 2xl:w-2.5/5' />
                 </div>
                 {
                     tournament.status == 2
-                    ?
+                        ?
                         <div className='flex items-end justify-start w-full absolute top-0 left-0 '>
                             <p className='uppercase font-semibold text-green-600 rounded-tl-lg  text-[10px] md:text-[12px]  flex items-center px-1 pt-1'>
                                 <RxDotFilled className='md:text-base animate-ping' />
                                 Ongoing
                             </p>
                         </div>
-                    :
-                        tournament.status == 1 
-                        ?
+                        :
+                        tournament.status == 1
+                            ?
                             <div className='flex items-end justify-start w-full absolute top-0 left-0 '>
                                 <p className='uppercase font-semibold text-red-600 rounded-tl-lg  text-[10px] md:text-[12px]  flex items-center px-2 pt-1'>
                                     Upcoming
                                 </p>
-                            </div> 
-                        :
+                            </div>
+                            :
                             <div className='flex items-end justify-start w-full absolute top-0 left-0 '>
                                 <p className='uppercase font-semibold text-gray-400 rounded-tl-lg  text-[10px] md:text-[12px]  flex items-center px-2 pt-1'>
                                     Ended
                                 </p>
                             </div>
                 }
-                <div className='absolute left-6 top-4 space-y-3 w-1/2 h-1/3 flex justify-start items-center  '>
-                    <h1 className={`${tournament?.tournament_name?.length > 8 ? "xs:text-3xl xl:text-2xl uppercase" : "text-4xl uppercase"} uppercase font-bold `}>
-                        {tournament?.tournament_name}
+                <div className='absolute left-6 top-5 space-y-3 w-1/2 h-1/3 flex justify-start items-center  '>
+                    <h1 className="text-2xl uppercase font-bold ">
+                        {truncatedText}
                     </h1>
                 </div>
                 <div className=''>
-                    <div className='w-full flex justify-center items-center z-[2] space-x-5 mt-5 xs:mt-6 sm:mt-4 md:mt-3 lg:mt-2 xl:mt-4'>
+                    <div className='w-full flex justify-center items-center z-[2] space-x-5 mt-0 xs:mt-2 sm:mt-0 '>
                         <BsCalendar2Week className=' text-base transition-all text-black' />
                         <div className='flex  justify-center items-center   '>
-                            <p className=" transition-all text-black text-[10px] md:text-[12px] font-semibold xl:text-base">
+                            <p className=" transition-all text-black text-[12px] md:text-[12px] font-semibold xl:text-base">
                                 {moment(tournament.start_date).format('DD/MM/YYYY')}
                             </p>
                             <p className='mx-2  font-medium transition-all hidden md:block text-[#ee6730]  text-[7px] md:text-base'>to</p>
                             <p className='mx-2  font-medium transition-all md:hidden text-[#ee6730]  text-[7px] md:text-base'>/</p>
-                            <p className="transition-all text-black text-[10px] md:text-[12px] font-semibold xl:text-base">
+                            <p className="transition-all text-black text-[12px] md:text-[12px] font-semibold xl:text-base">
                                 {moment(tournament.end_date).format('DD/MM/YYYY')}
                             </p>
                         </div>
                     </div>
-                    <div className='bg-[#ee6730] mt-2 rounded-md text-center text-sm py-1 text-white mx-8 line-clamp-1 text-ellipsis'>
-                        {tournament.address} 
+                    <div className='bg-[#ee6730] rounded-md mt-3 text-center text-sm py-1 text-white mx-8 line-clamp-1 text-ellipsis'>
+                        {tournament.address}
                     </div>
                 </div>
             </div>

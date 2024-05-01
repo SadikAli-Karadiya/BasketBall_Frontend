@@ -23,7 +23,7 @@ const PlayerList = () => {
         {isLoading && <Loader />}
         {data && (
           <div>
-            <div className="flex flex-col min-h-screen px-10 2xl:px-32 lg:px-14 ">
+            <div className="flex flex-col min-h-screen px-4 sm:px-10 2xl:px-32 lg:px-14">
               <div className="xs:py-10 py-10">
                 <h1 className="xs:text-3xl sm:text-3xl md:text-4xl text-center font-bold  italic uppercase text-[#ee6730]  ">All Players</h1>
               </div>
@@ -60,27 +60,27 @@ const PlayerList = () => {
                                 className="w-28 h-28 object-cover opacity-20 "
                               />
                             </div>
-                            <div className=" flex flex-col  px-5 sm:px-8 lg:px-12  sm:flex-row w-full h-full absolute top-0 content-start py-2 ">
-                              <div className="bg-gradient-to-b  from-[#e64100]  absolute  md:top-[-32px] md:left-[-20px] w-10 h-10 rotate-[30deg] top-[-15px] left-[-15px] md:h-20 md:w-14 content-start md:rotate-[45deg] flex justify-center items-center">
-                                <h1 className="rotate-[-30deg] md:rotate-[315deg] text-xs font-bold md:text-lg mt-1 ml-5 md:ml-6">
-                                  {(index + 1) + ((pageNo - 1) * 10)}
-                                </h1>
-                              </div>
+                            <div className="bg-gradient-to-b  from-[#e64100]  absolute  md:top-[-32px] md:left-[-20px] w-10 h-10 rotate-[30deg] top-[-15px] left-[-15px] md:h-20 md:w-14 content-start md:rotate-[45deg] flex justify-center items-center">
+                              <h1 className="rotate-[-30deg] md:rotate-[315deg] text-xs font-bold md:text-lg mt-1 ml-5 md:ml-6">
+                                {(index + 1) + ((pageNo - 1) * 10)}
+                              </h1>
+                            </div>
+                            <div className=" flex flex-col px-5 space-y-2 sm:space-y-0 sm:px-8 lg:px-12 sm:flex-row w-full absolute top-2 sm:top-5 md:top-5 xl:top-4 content-center">
                               {/* avtar start */}
-                              <div className="text-center sm:w-[65%]   w-full items-center justify-start  lg:py-6 flex  ">
-                                <div className="w-1/3 lg:w-40 ">
+                              <div className="text-center sm:w-[65%] space-x-1 sm:space-x-2 w-full items-center justify-start flex">
+                                <div className="w-1/3 lg:w-40">
                                   <img
                                     src={player?.photo ? player?.photo : "/CBL_Images/player-default-profile.webp"}
-                                    className=" object-cover w-20 h-20 rounded-full border-2 sm:border-4 border-slate-700 "
+                                    className=" object-cover h-12 w-14 sm:w-20 sm:h-16 xl:h-20 rounded-full shadow-md "
                                   />
                                 </div>
                                 <div className="flex justify-center items-center w-1/2">
-                                  <h1 className="text-gray-600 font-bold xs:text-xs sm:text-xs lg:text-base uppercase">
+                                  <h1 className="text-gray-600 font-bold xs:text-[10px] sm:text-xs lg:text-base uppercase">
                                     {player?.playing_position ? player?.playing_position : "...."}
                                   </h1>
                                 </div>
                                 <div className="flex flex-col w-full justify-start">
-                                  <h1 className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-[24px] text-start ">
+                                  <h1 className="text-white font-extrabold text-base sm:text-lg md:text-xl lg:text-[24px] text-start ">
                                     {player?.first_name}
                                   </h1>
                                   <h1 className="text-gray-600 font-bold text-[8px] sm:text-[10px] lg:text-xs xl:text-sm text-start ">
@@ -90,49 +90,49 @@ const PlayerList = () => {
                               </div>
                               {/* avtar end */}
                               {/* statiscs start */}
-                              <div className="2xl:justify-end py-1 g:p-2 w-full sm:w-[35%] flex items-center justify-center  ">
+                              <div className="2xl:justify-end py-1 g:p-2 w-full sm:w-[35%] flex items-center justify-center ">
                                 <div className="flex justify-between w-full ">
-                                  <div className="text-center    ">
+                                  <div className="flex flex-col text-center">
                                     <h1
                                       className="text-sm sm:text-lg md:text-2xl  lg:text-3xl 
-                             font-bold text-white"
+                             font-bold text-[#373B4E]"
                                     >
                                       {player?.player_statistics[0]?.matches_played ? player?.player_statistics[0]?.matches_played : "0"}
                                     </h1>
-                                    <span className="text-[8px] sm:text-[9px] md:text-[11px] lg:text-xs xl:text-base text-white font-semibold">
+                                    <span className="text-[10px] md:text-[11px] lg:text-xs xl:text-base text-[#1c76bb] font-bold">
                                       Total
                                     </span>
                                   </div>
-                                  <div className="text-center    ">
+                                  <div className="flex flex-col text-center">
                                     <h1
                                       className="text-sm sm:text-lg md:text-2xl lg:text-3xl 
                              font-bold text-green-600"
                                     >
                                       {player?.player_statistics[0]?.matches_won ? player?.player_statistics[0]?.matches_won : "0"}
                                     </h1>
-                                    <span className="text-[8px] sm:text-[9px] md:text-[11px] lg:text-xs xl:text-base text-white font-semibold">
+                                    <span className="text-[10px] md:text-[11px] lg:text-xs xl:text-base text-[#1c76bb] font-bold">
                                       Won
                                     </span>
                                   </div>
-                                  <div className="text-center    ">
+                                  <div className="flex flex-col text-center">
                                     <h1
                                       className="text-sm sm:text-lg md:text-2xl lg:text-3xl 
                              font-bold text-red-600"
                                     >
                                       {player?.player_statistics[0]?.matches_lost ? player?.player_statistics[0]?.matches_lost : "0"}
                                     </h1>
-                                    <span className="text-[8px] sm:text-[9px] md:text-[11px] lg:text-xs xl:text-base text-white font-semibold">
+                                    <span className="text-[10px] md:text-[11px] lg:text-xs xl:text-base text-[#1c76bb] font-bold">
                                       lost
                                     </span>
                                   </div>
-                                  <div className="text-center    ">
+                                  <div className="flex flex-col text-center">
                                     <h1
                                       className="text-sm sm:text-lg md:text-2xl lg:text-3xl
                              font-bold text-green-600"
                                     >
                                       {player?.player_statistics[0]?.points ? player?.player_statistics[0]?.points : "0"}
                                     </h1>
-                                    <span className="text-[8px] sm:text-[9px] md:text-[11px] lg:text-xs xl:text-base text-white font-semibold">
+                                    <span className="text-[10px] md:text-[11px] lg:text-xs xl:text-base text-[#1c76bb] font-bold">
                                       Points
                                     </span>
                                   </div>
