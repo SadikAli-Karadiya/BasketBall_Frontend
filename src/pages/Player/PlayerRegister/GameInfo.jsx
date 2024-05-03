@@ -108,7 +108,7 @@ const GameInfo = ({ index, setIndex }) => {
             <div className="  ">
               <label htmlFor="required-email" className="text-gray-700">
                 Height (cm)
-                <span className="text-red-500 required-dot"></span>
+                <span className="text-red-500 required-dot">*</span>
               </label>
               <input
                 type="number"
@@ -128,7 +128,7 @@ const GameInfo = ({ index, setIndex }) => {
             <div className="  ">
               <label htmlFor="weight" className="text-gray-700">
                 Weight (kg)
-                <span className="text-red-500 required-dot"></span>
+                <span className="text-red-500 required-dot">*</span>
               </label>
               <input
                 type="number"
