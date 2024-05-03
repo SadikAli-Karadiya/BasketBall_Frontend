@@ -43,7 +43,7 @@ const BasicInfo = ({ index, setIndex }) => {
                 Basic Information
               </h1>
             </div>
-            <div className="md:col-span-1  md:flex justify-center md:justify-center items-center ">
+            <div className="flex flex-col justify-center md:justify-center items-center">
               <div className="profile_img_div flex justify-center rounded-full items-center border-2 border-gray-500 shadow-lg">
                 <img
                   src={img}
@@ -65,6 +65,7 @@ const BasicInfo = ({ index, setIndex }) => {
                   />
                 </div>
               </div>
+              <h1 className="mt-1 text-sm font-medium">Profile Photo</h1>
             </div>
             <div className="">
               <label htmlFor="firstName" className="text-gray-700">
