@@ -1,7 +1,10 @@
 import React from "react";
 import { HiArrowLeft } from "react-icons/hi"
+import { useNavigate } from "react-router-dom";
 
 export default function PageNotFound() {
+  const navigate = useNavigate()
+
   return (
     <div className="text-center py-60 lg:py-36" style={{minHeight: 'calc(100vh - 70px)'}}>
       <h1 className="text-7xl md:text-9xl font-bold text-black py-2">404</h1>
@@ -13,9 +16,9 @@ export default function PageNotFound() {
         URL in address bar and try again.
       </p>
       <div className="text-md text-indigo-700 flex justify-center cursor-pointer mt-5">
-        <div className="hover:underline text-[#ee6730] flex items-center gap-1">
+        <div className="hover:underline text-[#ee6730] flex items-center gap-1"  onClick={()=>{navigate("/")}}>
           <HiArrowLeft />
-          Go back</div>
+          Go Home</div>
       </div>
     </div>
   );

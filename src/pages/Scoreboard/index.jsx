@@ -14,7 +14,7 @@ import _ from 'lodash';
 import { useIsAuthScorekeeperQuery, useStartMatchMutation, useEndMatchMutation, useAddTeamFoulMutation, useChangeQuarterMutation, useUndoScoreMutation } from '../../services/scoreboard';
 import { useGetMatchScoreQuery } from '../../services/match';
 
-function index() {
+function Scoreboard() {
     const {match_id, token} = useParams()
     const navigate = useNavigate();
 
@@ -629,4 +629,4 @@ function index() {
     )
 }
 
-export default index
+export default Scoreboard
